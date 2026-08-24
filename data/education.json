@@ -1,0 +1,20 @@
+{
+  "education": [
+    {
+      "id": 1,
+      "date": "2024 - Présent",
+      "title": "Licence 3 en Génie Logiciel",
+      "institution": "ENI Fianarantsoa",
+      "location": "Fianarantsoa",
+      "description": "Spécialisation en Génie Logiciel et Base de données."
+    },
+    {
+      "id": 2,
+      "date": "2023",
+      "title": "Baccalauréat Série S",
+      "institution": "Institution Marthe Hervé",
+      "location": "Antananarivo",
+      "description": ""
+    }
+  ]
+}

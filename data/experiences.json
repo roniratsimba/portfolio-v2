@@ -1,0 +1,13 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "date": "Sept 2025 - Déc 2025",
+      "title": "Stagiaire Développeur Web",
+      "company": "Direction Générale des Impôts",
+      "location": "Antananarivo",
+      "description": "Mise en place d'un système web de gestion et suivi des stagiaires (rôles, attestations, notifications, archivage).",
+      "stack": ["Symfony", "PostgreSQL", "Doctrine ORM", "Twig", "JavaScript"]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Calculateur IRSA Madagascar",
+      "description": "Application web permettant de calculer l'Impôt sur les Revenus Salariaux et Assimilés selon le barème fiscal malgache 2026.",
+      "stack": ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "demo": "http://calcul-irsa-v1.vercel.app/",
+      "github": "https://github.com/roniratsimba/calcul-irsa-v1",
+      "images": ["images/projets/irsa/info.png", "images/projects/irsa/calcul.png","images/projects/irsa/bareme.png"]
+    },
+    {
+      "id": 2,
+      "title": "Application Web Mobile Money",
+      "description": "Simulation complète de transactions financières (envois, retraits, calcul de frais), génération de relevés PDF et notifications automatisées (inspirée de MVola).",
+      "stack": ["Java 17", "JSP/Servlets", "PostgreSQL", "Tailwind CSS", "Maven"],
+      "demo": "",
+      "github": "https://github.com/roniratsimba/mobile-money",
+      "images": []
+    },
+    {
+      "id": 3,
+      "title": "Campus Scheduler",
+      "description": "Système fullstack de gestion et d'optimisation des emplois du temps universitaires : planification des salles, enseignants et groupes, détection de conflits, recherche de salles libres, consultation publique et interface d'administration sécurisée.",
+      "stack": ["React", "TypeScript", "Symfony", "Doctrine ORM", "JWT", "PostgreSQL"],
+      "demo": "",
+      "github": "https://github.com/roniratsimba/campus-scheduler",
+      "images": []
+    },
+    {
+      "id": 4,
+      "title": "Gestion Restaurant",
+      "description": "",
+      "stack": ["PHP", "XAMPP", "MySQL", "JavaScript"],
+      "demo": "",
+      "github": "https://github.com/roniratsimba/restau-management",
+      "images": ["images/projects/restau/GestResto1.png", "images/projects/restau/GestResto2.png", "images/projects/restau/GestResto3.png", "images/projects/restau/GestResto4.png", "images/projects/restau/GestResto5.png"]
+    }
+  ]
+}

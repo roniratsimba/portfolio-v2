@@ -1,0 +1,59 @@
+{
+  "skills": {
+    "backend": {
+      "title": "Backend",
+      "skills": [
+        {"name": "PHP", "level": "high"},
+        {"name": "Symfony", "level": "high"},
+        {"name": "Doctrine", "level": "high"},
+        {"name": "Java 17", "level": "medium"},
+        {"name": "Node.js", "level": "medium"}
+      ]
+    },
+    "frontend": {
+      "title": "Frontend",
+      "skills": [
+        {"name": "React", "level": "high"},
+        {"name": "TypeScript", "level": "high"},
+        {"name": "JavaScript", "level": "high"},
+        {"name": "Tailwind CSS", "level": "high"},
+        {"name": "Twig", "level": "medium"}
+      ]
+    },
+    "mobile": {
+      "title": "Mobile",
+      "skills": [
+        {"name": "Flutter", "level": "medium"},
+        {"name": "Android Studio", "level": "low"}
+      ]
+    },
+    "database": {
+      "title": "Bases de données",
+      "skills": [
+        {"name": "PostgreSQL", "level": "high"},
+        {"name": "MySQL", "level": "medium"},
+        {"name": "Modélisation relationnelle", "level": "high"}
+      ]
+    },
+    "design": {
+      "title": "Conception & Architecture",
+      "skills": [
+        {"name": "UML", "level": "high"},
+        {"name": "Merise", "level": "medium"},
+        {"name": "Architecture MVC", "level": "high"},
+        {"name": "POO", "level": "high"}
+      ]
+    },
+    "tools": {
+      "title": "Outils & Workflow",
+      "skills": [
+        {"name": "Git", "level": "high"},
+        {"name": "GitHub", "level": "high"},
+        {"name": "API REST", "level": "high"},
+        {"name": "Composer", "level": "medium"},
+        {"name": "NPM", "level": "medium"},
+        {"name": "Maven", "level": "medium"}
+      ]
+    }
+  }
+}
