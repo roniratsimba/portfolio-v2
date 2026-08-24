@@ -1,0 +1,381 @@
+x   <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RATSIMBAZAFY Roni Henintsoa — Développeur Web & Génie Logiciel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=gambetta@200,400,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader-container" id="loader">
+    <div class="loader">
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__ball"></div>
+    </div>
+    <p class="loader-text">Roro</p>
+  </div>
+
+  <div class="glow-bg">
+    <div class="circle circle-blue"></div>
+    <div class="circle circle-pink"></div>
+    
+    <!-- Glow Grid Pattern -->
+    <svg class="glow-grid" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0, 163, 255, 0.1)" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid)"/>
+    </svg>
+    
+    <!-- Wave Shape -->
+    <svg class="wave-shape" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="rgba(0, 163, 255, 0.05)" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    
+    <!-- Blurred Shape -->
+    <div class="blurred-shape shape-1"></div>
+    <div class="blurred-shape shape-2"></div>
+  </div>
+
+  <nav class="navbar">
+    <a href="#" class="logo">RONI<span>.DEV</span></a>
+    <!-- <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#experiences">Parcours</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul> -->
+    <!-- <button class="theme-toggle" aria-label="Toggle theme">
+      <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button> -->
+    <!-- <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button> -->
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h2 class="hero-intro">Bonjour, je suis</h2>
+      <h1 class="hero-title">RATSIMBAZAFY <span class="hero-name">RONI</span></h1>
+      <p class="hero-subtitle">Développeur Full-Stack Junior    PHP/Symfony & React</p>
+      <p class="hero-availability">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle; margin-right: 8px;">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+        </svg>
+        Disponible dès septembre 2026 pour un stage de fin d'études
+      </p>
+
+      <div class="hero-actions">
+        <a href="mailto:roniratsimba@gmail.com" class="btn btn-primary">Me contacter</a>
+        <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+        
+        <div class="cv-download">
+          <label class="label">
+            <input type="checkbox" class="input">
+            <div class="circle">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <div class="square"></div>
+            </div>
+            <span class="title">Download CV</span>
+            <span class="title">Téléchargé</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="mailto:roniratsimba@gmail.com" class="email-link">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="image-frame">
+        <div class="placeholder-avatar">RH</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <h2 class="section-title">À propos</h2>
+    <div class="about-container">
+      <p class="lead-text">
+        Étudiant en 3ème année de Génie Logiciel à l'École Nationale d'Informatique de Fianarantsoa, je suis passionné par le développement web moderne et l'intelligence artificielle.
+      </p>
+      <p>
+        Je construis principalement avec la stack <strong>PHP / Symfony</strong> et des bases de données relationnelles, mais je suis toujours curieux de découvrir de nouvelles technologies.
+      </p>
+      <p>
+        Disponible dès septembre 2026 pour un stage de fin d'études (ou un premier CDI junior), je cherche à m'investir pleinement sur un projet concret, à apprendre et à contribuer à des solutions web innovantes, performantes et éventuellement basées sur l'IA.
+      </p>
+      <div class="about-location">
+        <div class="location-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Madagascar (Antananarivo / Fianarantsoa)</span>
+        </div>
+        <div class="location-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+261 34 22 249 38</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <h2 class="section-title">Ce que je fais</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Backend Development</h3>
+        <p>Conception d'architectures solides, gestion avancée de bases de données relationnelles, sécurité et création d'API REST performantes.</p>
+        <span class="tech-tag">Symfony • Node.js • Java • PostgreSQL</span>
+      </div>
+      <div class="service-card">
+        <h3>Frontend & Mobile</h3>
+        <p>Développement d'interfaces utilisateur modernes, réactives et fluides pour le web et les applications mobiles.</p>
+        <span class="tech-tag">React.js • TypeScript • Flutter • Tailwind</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section skills" id="skills">
+    <h2 class="section-title">Compétences techniques</h2>
+    <div class="skills-wrapper">
+      <div class="skill-category">
+        <h4>Backend</h4>
+        <div class="badges">
+          <span class="skill-level-high">PHP</span>
+          <span class="skill-level-high">Symfony</span>
+          <span class="skill-level-high">Doctrine</span>
+          <span class="skill-level-medium">Java 17</span>
+          <span class="skill-level-medium">Node.js</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Frontend</h4>
+        <div class="badges">
+          <span class="skill-level-high">React</span>
+          <span class="skill-level-high">TypeScript</span>
+          <span class="skill-level-high">JavaScript</span>
+          <span class="skill-level-high">Tailwind CSS</span>
+          <span class="skill-level-medium">Twig</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Mobile</h4>
+        <div class="badges">
+          <span class="skill-level-medium">Flutter</span>
+          <span class="skill-level-low">Android Studio</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Bases de données</h4>
+        <div class="badges">
+          <span class="skill-level-high">PostgreSQL</span>
+          <span class="skill-level-medium">MySQL</span>
+          <span class="skill-level-high">Modélisation relationnelle</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Conception & Architecture</h4>
+        <div class="badges">
+          <span class="skill-level-high">UML</span>
+          <span class="skill-level-medium">Merise</span>
+          <span class="skill-level-high">Architecture MVC</span>
+          <span class="skill-level-high">POO</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Outils & Workflow</h4>
+        <div class="badges">
+          <span class="skill-level-high">Git</span>
+          <span class="skill-level-high">GitHub</span>
+          <span class="skill-level-high">API REST</span>
+          <span class="skill-level-medium">Composer</span>
+          <span class="skill-level-medium">NPM</span>
+          <span class="skill-level-medium">Maven</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section experiences" id="experiences">
+    <h2 class="section-title">Parcours</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Sept 2025 - Déc 2025</div>
+        <div class="timeline-content">
+          <h3>Stagiaire Développeur Web — Direction Générale des Impôts</h3>
+          <p>Mise en place d'un système web de gestion et suivi des stagiaires (rôles, attestations, notifications, archivage).</p>
+          <span class="stack">Symfony - PostgreSQL - Doctrine ORM - Twig - JS</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024 - Présent</div>
+        <div class="timeline-content">
+          <h3>Licence 3 en Génie Logiciel — ENI Fianarantsoa</h3>
+          <p>Spécialisation en Génie Logiciel et Base de données.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h2 class="section-title">Projets phares</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-thumb"><span>01</span></div>
+        <h3>Calculateur IRSA Madagascar</h3>
+        <p>Application web permettant de calculer l'Impôt sur les Revenus Salariaux et Assimilés selon le barème fiscal malgache 2026.</p>
+        <div class="project-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span></div>
+        <div class="project-links">
+          <a href="http://calcul-irsa-v1.vercel.app/" target="_blank" rel="noopener" class="project-link">🔗 Demo Live</a>
+          <a href="https://github.com/roniratsimba/calcul-irsa-v1" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"><span>02</span></div>
+        <h3>Application Web Mobile Money</h3>
+        <p>Simulation complète de transactions financières (envois, retraits, calcul de frais), génération de relevés PDF et notifications automatisées (inspirée de MVola).</p>
+        <div class="project-tags"><span>Java 17</span><span>JSP/Servlets</span><span>PostgreSQL</span><span>Tailwind CSS</span><span>Maven</span></div>
+        <div class="project-links">
+          <a href="https://github.com/roniratsimba/mobile-money" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"><span>03</span></div>
+        <h3>Campus Scheduler</h3>
+        <p>Système fullstack de gestion et d'optimisation des emplois du temps universitaires : planification des salles, enseignants et groupes, détection de conflits, recherche de salles libres, consultation publique et interface d'administration sécurisée.</p>
+        <div class="project-tags"><span>React</span><span>TypeScript</span><span>Symfony</span><span>Doctrine ORM</span><span>JWT</span><span>PostgreSQL</span></div>
+        <div class="project-links">
+          <a href="https://github.com/roniratsimba/campus-scheduler" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Discutons de votre prochain projet</h3>
+        <p>Disponible dès septembre 2026 pour un stage de fin d'études ou un premier CDI junior.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <a href="mailto:roniratsimba@gmail.com">roniratsimba@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="tel:+261342224938">+261 34 22 249 38</a>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Madagascar (Antananarivo / Fianarantsoa)</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">github.com/roniratsimba</a>
+          </div>
+        </div>
+      </div>
+      
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 RATSIMBAZAFY Roni Henintsoa. Tous droits réservés.</p>
+      <div class="footer-links">
+        <a href="mailto:roniratsimba@gmail.com">roniratsimba@gmail.com</a>
+        <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/roni-ratsimbazafy" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
