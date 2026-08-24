@@ -168,16 +168,57 @@ async function loadJSONData() {
   }
 }
 
+// function renderProjects(projects) {
+//   const container = document.getElementById('projects-container');
+//   if (!container) return;
+
+//   container.innerHTML = projects.map((project, index) => {
+//     // Use images if available, otherwise use numbered placeholder
+//     const thumbnail = project.images && project.images.length > 0 
+//       ? `<img src="${project.images[0]}" alt="${project.title}" class="project-image">`
+//       : `<span>0${index + 1}</span>`;
+    
+//     return `
+//     <div class="project-card">
+//       <div class="project-thumb">
+//         ${thumbnail}
+//       </div>
+//       <h3>${project.title}</h3>
+//       <p>${project.description || ''}</p>
+//       <div class="project-tags">
+//         ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
+//       </div>
+//       <div class="project-links">
+//         ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="project-link">🔗 Demo Live</a>` : ''}
+//         ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>` : ''}
+//       </div>
+//     </div>
+//   `}).join('');
+// }
+
 function renderProjects(projects) {
   const container = document.getElementById('projects-container');
   if (!container) return;
 
   container.innerHTML = projects.map((project, index) => {
-    // Use images if available, otherwise use numbered placeholder
-    const thumbnail = project.images && project.images.length > 0 
-      ? `<img src="${project.images[0]}" alt="${project.title}" class="project-image">`
-      : `<span>0${index + 1}</span>`;
-    
+    const images = project.images && project.images.length > 0 ? project.images : null;
+
+    let thumbnail;
+    if (images) {
+      thumbnail = `
+        <div class="project-slideshow">
+          ${images.map((img, i) => `<img src="${img}" alt="${project.title}" class="project-image slide${i === 0 ? ' active' : ''}">`).join('')}
+          ${images.length > 1 ? `
+            <div class="slideshow-dots">
+              ${images.map((_, i) => `<span class="dot${i === 0 ? ' active' : ''}"></span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    } else {
+      thumbnail = `<span>0${index + 1}</span>`;
+    }
+
     return `
     <div class="project-card">
       <div class="project-thumb">
@@ -194,6 +235,46 @@ function renderProjects(projects) {
       </div>
     </div>
   `}).join('');
+
+  initProjectSlideshows();
+}
+
+// Fait défiler automatiquement les photos de chaque projet
+function initProjectSlideshows() {
+  document.querySelectorAll('.project-slideshow').forEach(slideshow => {
+    const slides = slideshow.querySelectorAll('.slide');
+    const dots = slideshow.querySelectorAll('.dot');
+    if (slides.length <= 1) return; // rien à faire s'il n'y a qu'une photo (ou zéro)
+
+    let current = 0;
+    let interval = setInterval(nextSlide, 3000);
+
+    function goToSlide(i) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((current + 1) % slides.length);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        clearInterval(interval);
+        goToSlide(i);
+        interval = setInterval(nextSlide, 3000);
+      });
+    });
+
+    // pause au survol, pratique pour regarder une photo tranquillement
+    slideshow.addEventListener('mouseenter', () => clearInterval(interval));
+    slideshow.addEventListener('mouseleave', () => {
+      interval = setInterval(nextSlide, 3000);
+    });
+  });
 }
 
 function renderExperiences(experiences) {

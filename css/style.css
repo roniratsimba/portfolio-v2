@@ -558,6 +558,54 @@ body {
   color: var(--border-color);
   margin-bottom: 1.5rem;
   overflow: hidden;
+  position: relative;
+}
+
+.project-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10; /* donne une hauteur même sans .project-thumb défini */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.project-slideshow .project-image.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.project-slideshow .project-image.slide.active {
+  opacity: 1;
+}
+
+.slideshow-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.slideshow-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slideshow-dots .dot.active {
+  background: #fff;
+  transform: scale(1.3);
 }
 
 .project-image {

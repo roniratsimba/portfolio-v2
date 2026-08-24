@@ -7,7 +7,7 @@
       "stack": ["React", "TypeScript", "Tailwind CSS", "Vite"],
       "demo": "http://calcul-irsa-v1.vercel.app/",
       "github": "https://github.com/roniratsimba/calcul-irsa-v1",
-      "images": ["images/projets/irsa/info.png", "images/projects/irsa/calcul.png","images/projects/irsa/bareme.png"]
+      "images": ["images/projects/irsa/info.png", "images/projects/irsa/mobile.png", "images/projects/irsa/calcul.png","images/projects/irsa/bareme.png"]
     },
     {
       "id": 2,
