@@ -26,92 +26,57 @@ document.addEventListener("DOMContentLoaded", () => {
       .from(".hero-intro", { y: -20, opacity: 0, delay: 0.2 })
       .from(".hero-title", { y: 30, opacity: 0 }, "-=0.6")
       .from(".hero-subtitle", { y: 20, opacity: 0 }, "-=0.6")
-      .from(".hero-availability", { y: 20, opacity: 0 }, "-=0.6")
+      .from(".availability-status", { y: 20, opacity: 0 }, "-=0.6")
       .from(".hero-actions", { y: 20, opacity: 0 }, "-=0.6")
       .from(".hero-media", { scale: 0.9, opacity: 0 }, "-=0.8");
   }
 
-  // 2. Animations au scroll pour chaque section
-  const sections = document.querySelectorAll(".section");
-
-  sections.forEach((section) => {
-    gsap.from(section.querySelectorAll(".section-title, p, .service-card, .project-card, .timeline-item, .contact-item, .form-group"), {
+  // 2. Animation au scroll pour le footer uniquement
+  const footer = document.querySelector(".footer");
+  if (footer) {
+    gsap.from(footer, {
       scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
+        trigger: footer,
+        start: "top 95%",
         toggleActions: "play none none none"
       },
-      y: 40,
+      y: 30,
       opacity: 0,
       duration: 0.8,
-      stagger: 0.15,
       ease: "power2.out"
     });
-  });
+  }
 
-  // 3. Effet Parallaxe subtil sur les cercles de fond
-  document.addEventListener("mousemove", (e) => {
-    const mouseX = e.clientX / window.innerWidth - 0.5;
-    const mouseY = e.clientY / window.innerHeight - 0.5;
-
-    gsap.to(".circle-blue", {
-      x: mouseX * 60,
-      y: mouseY * 60,
-      duration: 2,
-      ease: "power1.out"
-    });
-
-    gsap.to(".circle-pink", {
-      x: mouseX * -40,
-      y: mouseY * -40,
-      duration: 2,
-      ease: "power1.out"
-    });
-  });
-
-  // 4. Contact Form Handler
+  // 3. Contact Form Handler
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const formData = new FormData(contactForm);
       const name = formData.get('name');
       const email = formData.get('email');
       const message = formData.get('message');
-      
+
       // Create mailto link with form data
       const mailtoLink = `mailto:roniratsimba@gmail.com?subject=Message depuis le portfolio de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-      
+
       window.location.href = mailtoLink;
-      
+
       // Reset form
       contactForm.reset();
     });
   }
 
-  // 5. CV Download Handler
-  const cvInput = document.querySelector('.cv-download .input');
-  const cvLabel = document.querySelector('.cv-download .label');
-  
-  if (cvInput && cvLabel) {
-    cvInput.addEventListener('change', function() {
-      if (this.checked) {
-        cvLabel.classList.add('checked');
-        
-        // Simulate CV download (replace with actual CV file)
-        setTimeout(() => {
-          // Here you would normally trigger a real download
-          // window.location.href = 'path/to/cv.pdf';
-          console.log('CV download triggered');
-          
-          // Reset after animation
-          setTimeout(() => {
-            this.checked = false;
-            cvLabel.classList.remove('checked');
-          }, 5000);
-        }, 3500);
-      }
+  // 4. CV Download Handler
+  const cvButton = document.querySelector('.cv-download .animated-button');
+
+  if (cvButton) {
+    cvButton.addEventListener('click', function() {
+      // Simulate CV download (replace with actual CV file)
+      console.log('CV download triggered');
+      // Here you would normally trigger a real download
+      // window.location.href = 'path/to/cv.pdf';
     });
   }
 });
@@ -315,11 +280,11 @@ function renderSkills(skills) {
   if (!container) return;
 
   container.innerHTML = Object.values(skills).map(category => `
-    <div class="skill-category">
-      <h4>${category.title}</h4>
-      <div class="badges">
+    <div class="skill-card">
+      <h3>${category.title}</h3>
+      <div class="skill-card-content">
         ${category.skills.map(skill => `
-          <span class="skill-level-${skill.level}">${skill.name}</span>
+          <span class="skill-item">${skill.name}</span>
         `).join('')}
       </div>
     </div>
@@ -411,59 +376,59 @@ function renderSkillsFallback() {
   if (!container) return;
   
   container.innerHTML = `
-    <div class="skill-category">
-      <h4>Backend</h4>
-      <div class="badges">
-        <span class="skill-level-high">PHP</span>
-        <span class="skill-level-high">Symfony</span>
-        <span class="skill-level-high">Doctrine</span>
-        <span class="skill-level-medium">Java 17</span>
-        <span class="skill-level-medium">Node.js</span>
+    <div class="skill-card">
+      <h3>Backend</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">PHP</span>
+        <span class="skill-item">Symfony</span>
+        <span class="skill-item">Doctrine</span>
+        <span class="skill-item">Java 17</span>
+        <span class="skill-item">Node.js</span>
       </div>
     </div>
-    <div class="skill-category">
-      <h4>Frontend</h4>
-      <div class="badges">
-        <span class="skill-level-high">React</span>
-        <span class="skill-level-high">TypeScript</span>
-        <span class="skill-level-high">JavaScript</span>
-        <span class="skill-level-high">Tailwind CSS</span>
-        <span class="skill-level-medium">Twig</span>
+    <div class="skill-card">
+      <h3>Frontend</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">React</span>
+        <span class="skill-item">TypeScript</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">Tailwind CSS</span>
+        <span class="skill-item">Twig</span>
       </div>
     </div>
-    <div class="skill-category">
-      <h4>Mobile</h4>
-      <div class="badges">
-        <span class="skill-level-medium">Flutter</span>
-        <span class="skill-level-low">Android Studio</span>
+    <div class="skill-card">
+      <h3>Mobile</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">Flutter</span>
+        <span class="skill-item">Android Studio</span>
       </div>
     </div>
-    <div class="skill-category">
-      <h4>Bases de données</h4>
-      <div class="badges">
-        <span class="skill-level-high">PostgreSQL</span>
-        <span class="skill-level-medium">MySQL</span>
-        <span class="skill-level-high">Modélisation relationnelle</span>
+    <div class="skill-card">
+      <h3>Bases de données</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">PostgreSQL</span>
+        <span class="skill-item">MySQL</span>
+        <span class="skill-item">Modélisation relationnelle</span>
       </div>
     </div>
-    <div class="skill-category">
-      <h4>Conception & Architecture</h4>
-      <div class="badges">
-        <span class="skill-level-high">UML</span>
-        <span class="skill-level-medium">Merise</span>
-        <span class="skill-level-high">Architecture MVC</span>
-        <span class="skill-level-high">POO</span>
+    <div class="skill-card">
+      <h3>Conception & Architecture</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">UML</span>
+        <span class="skill-item">Merise</span>
+        <span class="skill-item">Architecture MVC</span>
+        <span class="skill-item">POO</span>
       </div>
     </div>
-    <div class="skill-category">
-      <h4>Outils & Workflow</h4>
-      <div class="badges">
-        <span class="skill-level-high">Git</span>
-        <span class="skill-level-high">GitHub</span>
-        <span class="skill-level-high">API REST</span>
-        <span class="skill-level-medium">Composer</span>
-        <span class="skill-level-medium">NPM</span>
-        <span class="skill-level-medium">Maven</span>
+    <div class="skill-card">
+      <h3>Outils & Workflow</h3>
+      <div class="skill-card-content">
+        <span class="skill-item">Git</span>
+        <span class="skill-item">GitHub</span>
+        <span class="skill-item">API REST</span>
+        <span class="skill-item">Composer</span>
+        <span class="skill-item">NPM</span>
+        <span class="skill-item">Maven</span>
       </div>
     </div>
   `;

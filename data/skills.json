@@ -3,56 +3,56 @@
     "backend": {
       "title": "Backend",
       "skills": [
-        {"name": "PHP", "level": "high"},
-        {"name": "Symfony", "level": "high"},
-        {"name": "Doctrine", "level": "high"},
-        {"name": "Java 17", "level": "medium"},
-        {"name": "Node.js", "level": "medium"}
+        {"name": "PHP"},
+        {"name": "Symfony"},
+        {"name": "Doctrine"},
+        {"name": "Java 17"},
+        {"name": "Node.js"}
       ]
     },
     "frontend": {
       "title": "Frontend",
       "skills": [
-        {"name": "React", "level": "high"},
-        {"name": "TypeScript", "level": "high"},
-        {"name": "JavaScript", "level": "high"},
-        {"name": "Tailwind CSS", "level": "high"},
-        {"name": "Twig", "level": "medium"}
+        {"name": "React"},
+        {"name": "TypeScript"},
+        {"name": "JavaScript"},
+        {"name": "Tailwind CSS"},
+        {"name": "Twig"}
       ]
     },
     "mobile": {
       "title": "Mobile",
       "skills": [
-        {"name": "Flutter", "level": "medium"},
-        {"name": "Android Studio", "level": "low"}
+        {"name": "Flutter"},
+        {"name": "Android Studio"}
       ]
     },
     "database": {
       "title": "Bases de données",
       "skills": [
-        {"name": "PostgreSQL", "level": "high"},
-        {"name": "MySQL", "level": "medium"},
-        {"name": "Modélisation relationnelle", "level": "high"}
+        {"name": "PostgreSQL"},
+        {"name": "MySQL"},
+        {"name": "Modélisation relationnelle"}
       ]
     },
     "design": {
       "title": "Conception & Architecture",
       "skills": [
-        {"name": "UML", "level": "high"},
-        {"name": "Merise", "level": "medium"},
-        {"name": "Architecture MVC", "level": "high"},
-        {"name": "POO", "level": "high"}
+        {"name": "UML"},
+        {"name": "Merise"},
+        {"name": "Architecture MVC"},
+        {"name": "POO"}
       ]
     },
     "tools": {
       "title": "Outils & Workflow",
       "skills": [
-        {"name": "Git", "level": "high"},
-        {"name": "GitHub", "level": "high"},
-        {"name": "API REST", "level": "high"},
-        {"name": "Composer", "level": "medium"},
-        {"name": "NPM", "level": "medium"},
-        {"name": "Maven", "level": "medium"}
+        {"name": "Git"},
+        {"name": "GitHub"},
+        {"name": "API REST"},
+        {"name": "Composer"},
+        {"name": "NPM"},
+        {"name": "Maven"}
       ]
     }
   }

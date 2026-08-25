@@ -27,13 +27,8 @@
 
   <!-- Loader -->
   <div class="loader-container" id="loader">
-    <div class="loader">
-      <div class="loader__bar"></div>
-      <div class="loader__bar"></div>
-      <div class="loader__bar"></div>
-      <div class="loader__bar"></div>
-      <div class="loader__bar"></div>
-      <div class="loader__ball"></div>
+    <div class="container">
+      <div class="cube"></div>
     </div>
     <p class="loader-text">Roro</p>
   </div>
@@ -62,40 +57,55 @@
     <div class="blurred-shape shape-2"></div>
   </div>
 
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <a href="#" class="logo">roro<span>.dev</span></a>
-  </nav>
+  </nav> -->
+
+  <div class="availability-banner">
+    <div class="availability-indicator"></div>
+    <span class="availability-text">Disponible tout de suite</span>
+  </div>
 
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <h2 class="hero-intro">Hi, je suis</h2>
-      <h1 class="hero-title">RATSIMBAZAFY <span class="hero-name">Roni</span></h1>
-      <p class="hero-subtitle">Développeur Full-Stack Junior    PHP/Symfony & React</p>
-      <p class="hero-availability">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle; margin-right: 8px;">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-        </svg>
-        Disponible dès septembre 2026 pour un stage de fin d'études
-      </p>
+    <div class="hero-left">
+      <div class="hero-media">
+        <div class="image-frame">
+          <img src="images/me/moi.jpeg" alt="Roni Ratsimbazafy" class="profile-avatar">
+        </div>
+      </div>
+    </div>
 
+    <div class="hero-center">
+      <h2 class="hero-intro">Hi, je suis</h2>
+      <h1 class="hero-title">RONI</h1>
+      <p class="hero-subtitle">Développeur Full-Stack Junior    PHP/Symfony & React</p>
+    </div>
+
+    <div class="hero-right">
       <div class="hero-actions">
-        <a href="mailto:roniratsimba@gmail.com" class="btn btn-primary">Me contacter</a>
+        <div class="availability-status">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle; margin-right: 8px;">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+          Disponible maintenant
+        </div>
         <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
-        
+
         <div class="cv-download">
-          <label class="label">
-            <input type="checkbox" class="input">
-            <div class="circle">
-              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              <div class="square"></div>
-            </div>
-            <span class="title">Download CV</span>
-            <span class="title">Téléchargé</span>
-          </label>
+          <button class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Download CV</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -118,19 +128,13 @@
         </a>
       </div>
     </div>
-    <div class="hero-media">
-      <div class="image-frame">
-        <img src="images/me/moi.jpeg" alt="Roni Ratsimbazafy" class="profile-avatar">
-      </div>
-    </div>
   </section>
 
   <section class="section about" id="about">
     <h2 class="section-title">À propos</h2>
     <div class="about-container">
       <p class="lead-text">
-        Étudiant en Génie Logiciel, je conçois des applications web performantes et innovantes, notamment avec la stack Symfony / React, tout en intégrant des solutions basées sur l'intelligence artificielle et l'automatisation. Curieux de nature et doté d'une grande envie d'apprendre, je m'adapte rapidement à de nouvelles technologies pour répondre aux besoins de vos projets. Disponible dès septembre 2026 pour un stage de fin d'études ou un premier CDI, je suis prêt à m'investir à 200% dans votre équipe, en présentiel ou en remote.
-      </p>
+        Étudiant en Génie Logiciel passionné par le web et l'innovation, je développe des applications performantes en combinant la stack Symfony / React avec l'intégration d'IA et d'automatisations intelligentes. Ma curiosité et ma réactivité technique me permettent de m'adapter rapidement à vos défis technologiques. À la recherche d'un stage de fin d'études ou d'un premier CDI à partir de septembre 2026, je suis pleinement disponible pour rejoindre vos équipes, sur site ou à distance.</p>
       <div class="about-location">
         <div class="location-item">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -244,11 +248,6 @@
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2026 RATSIMBAZAFY Roni Henintsoa. Tous droits réservés.</p>
-      <div class="footer-links">
-        <a href="mailto:roniratsimba@gmail.com">roniratsimba@gmail.com</a>
-        <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/roni-ratsimbazafy" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
     </div>
   </footer>
 
