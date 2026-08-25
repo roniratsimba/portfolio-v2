@@ -113,10 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (cvButton) {
     cvButton.addEventListener('click', function() {
-      // Simulate CV download (replace with actual CV file)
-      console.log('CV download triggered');
-      // Here you would normally trigger a real download
-      // window.location.href = 'path/to/cv.pdf';
+      // Download CV file
+      window.location.href = 'CV_Roni_Ratsimbazafy.pdf';
     });
   }
 });
