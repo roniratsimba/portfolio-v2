@@ -47,24 +47,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. Contact Form Handler
+  // 3. Contact Modal Handler
+  const floatingMessageBtn = document.getElementById('floatingMessageBtn');
+  const contactModal = document.getElementById('contactModal');
+  const modalClose = document.getElementById('modalClose');
   const contactForm = document.getElementById('contactForm');
+  const thankYouMessage = document.getElementById('thankYouMessage');
+
+  if (floatingMessageBtn && contactModal) {
+    floatingMessageBtn.addEventListener('click', () => {
+      contactModal.classList.add('active');
+    });
+  }
+
+  if (modalClose && contactModal) {
+    modalClose.addEventListener('click', () => {
+      contactModal.classList.remove('active');
+    });
+  }
+
+  if (contactModal) {
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+      }
+    });
+  }
+
+  // Formspree Form Handler
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const formData = new FormData(contactForm);
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const message = formData.get('message');
 
-      // Create mailto link with form data
-      const mailtoLink = `mailto:roniratsimba@gmail.com?subject=Message depuis le portfolio de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-
-      window.location.href = mailtoLink;
-
-      // Reset form
-      contactForm.reset();
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          setTimeout(() => {
+            contactModal.classList.remove('active');
+            setTimeout(() => {
+              contactForm.style.display = 'flex';
+              thankYouMessage.style.display = 'none';
+              contactForm.reset();
+            }, 500);
+          }, 3000);
+        } else {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      }).catch(error => {
+        alert('Une erreur est survenue. Veuillez réessayer.');
+      });
     });
   }
 

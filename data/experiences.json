@@ -6,7 +6,7 @@
       "title": "Stagiaire Développeur Web",
       "company": "Direction Générale des Impôts",
       "location": "Antananarivo",
-      "description": "Mise en place d'un système web de gestion et suivi des stagiaires (rôles, attestations, notifications, archivage).",
+      "description": "Conception et déploiement d'une application web de gestion et de suivi des stagiaires. Développement de modules clés : gestion des utilisateurs et des rôles, rapports hebdomadaires, système de notifications et archivage des données.",
       "stack": ["Symfony", "PostgreSQL", "Doctrine ORM", "Twig", "JavaScript"]
     }
   ]
