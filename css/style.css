@@ -422,11 +422,11 @@ body {
 }
 
 .profile-avatar {
-  width: 320px;
-  height: 380px;
-  object-fit: cover;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
 }
 
 /* Services */
@@ -1192,8 +1192,8 @@ body {
 
   .placeholder-avatar,
   .profile-avatar {
-    width: 200px;
-    height: 250px;
+    max-width: 250px;
+    height: auto;
     font-size: 1.5rem;
   }
   
