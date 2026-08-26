@@ -35,6 +35,15 @@
       "demo": "",
       "github": "https://github.com/roniratsimba/restau-management",
       "images": ["images/projects/restau/GestResto1.png", "images/projects/restau/GestResto2.png", "images/projects/restau/GestResto3.png", "images/projects/restau/GestResto4.png", "images/projects/restau/GestResto5.png"]
+    },
+    {
+      "id": 5,
+      "title": "Portfolio Personnel",
+      "description": "Portfolio interactif sous forme de faux OS cyberpunk : un terminal où l'on explore mes projets, compétences et parcours comme dans un mini-RPG.",
+      "stack": ["React", "TypeScript"],
+      "demo": "https://roni-terminal.vercel.app/",
+      "github": "https://github.com/roniratsimba/portfolio-fun",
+      "images": ["images/projects/fun-portfolio/terminal.png", "images/projects/fun-portfolio/bureau.png", "images/projects/fun-portfolio/mobile.png", "images/projects/fun-portfolio/hire.png"]
     }
   ]
 }
