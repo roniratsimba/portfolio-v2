@@ -2,57 +2,147 @@
   "projects": [
     {
       "id": 1,
-      "title": "Calculateur IRSA Madagascar",
-      "description": "Application web permettant de calculer l'Impôt sur les Revenus Salariaux et Assimilés selon le barème fiscal malgache 2026.",
-      "stack": ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      "demo": "http://calcul-irsa-v1.vercel.app/",
-      "github": "https://github.com/roniratsimba/calcul-irsa-v1",
-      "images": ["images/projects/irsa/info.png", "images/projects/irsa/mobile.png", "images/projects/irsa/calcul.png","images/projects/irsa/bareme.png"]
-    },
-    {
-      "id": 2,
-      "title": "Commit Generator",
-      "description": "Un outil en ligne de commande qui analyse les changements Git et génère des messages de commit conventionnels (feat, fix, docs, etc.). Il fonctionne avec ou sans IA, et supporte plusieurs fournisseurs gratuits : Groq, Gemini, LocalAI.",
-      "stack": ["Python", "APIs", "CLI"],
-      "demo": "https://roniratsimba.github.io/commit-generator-site/",
-      "github": "https://github.com/roniratsimba/commit-generator",
-      "images": ["images/projects/commit-gen/1.png", "images/projects/commit-gen/2.png", "images/projects/commit-gen/3.png"]
-    },
-    {
-      "id": 3,
-      "title": "Application Web Mobile Money",
-      "description": "Simulation complète de transactions financières (envois, retraits, calcul de frais), génération de relevés PDF et notifications automatisées (inspirée de MVola).",
-      "stack": ["Java 17", "JSP/Servlets", "PostgreSQL", "Tailwind CSS", "Maven"],
-      "demo": "",
-      "github": "https://github.com/roniratsimba/mobile-money",
+      "title": "Campus Scheduler",
+      "kicker": {
+        "en": "FULL-STACK SYSTEM",
+        "fr": "SYSTÈME FULL-STACK"
+      },
+      "description": {
+        "fr": "Système full-stack de gestion des emplois du temps universitaires. Il centralise la planification des salles, enseignants et groupes, détecte les conflits, permet de rechercher des salles libres et distingue la consultation publique de l’administration sécurisée.",
+        "en": "A full-stack university scheduling system. It centralizes room, teacher and group planning, detects conflicts, supports free-room search and separates public consultation from secured administration."
+      },
+      "stack": [
+        "React",
+        "TypeScript",
+        "Symfony",
+        "Doctrine",
+        "JWT",
+        "PostgreSQL"
+      ],
+      "github": "https://github.com/roniratsimba/campus-scheduler",
+      "featured": true,
       "images": []
     },
     {
+      "id": 2,
+      "title": "Calculateur IRSA Madagascar",
+      "kicker": {
+        "en": "WEB APPLICATION",
+        "fr": "APPLICATION WEB"
+      },
+      "description": {
+        "fr": "Application web dédiée au calcul de l’Impôt sur les Revenus Salariaux et Assimilés selon le barème fiscal malgache 2026. L’interface transforme un calcul fiscal précis en une expérience simple, rapide et adaptée au mobile.",
+        "en": "A web application dedicated to calculating Madagascar’s salary income tax using the 2026 tax scale. It turns a precise tax calculation into a simple, fast and mobile-friendly experience."
+      },
+      "stack": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite"
+      ],
+      "demo": "https://calcul-irsa-v1.vercel.app/",
+      "github": "https://github.com/roniratsimba/calcul-irsa-v1",
+      "images": [
+        "images/projects/irsa/info.png",
+        "images/projects/irsa/mobile.png",
+        "images/projects/irsa/calcul.png",
+        "images/projects/irsa/bareme.png"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Commit Generator",
+      "kicker": {
+        "en": "DEVELOPER TOOL",
+        "fr": "OUTIL DE DÉVELOPPEMENT"
+      },
+      "description": {
+        "fr": "Outil CLI qui analyse les changements Git et génère des messages de commit conformes aux Conventional Commits. Il peut fonctionner sans IA ou s’appuyer sur plusieurs fournisseurs, notamment Groq, Gemini et LocalAI.",
+        "en": "A CLI that analyses Git changes and generates Conventional Commit messages. It can run without AI or connect to multiple providers, including Groq, Gemini and LocalAI."
+      },
+      "stack": [
+        "Python",
+        "CLI",
+        "Git",
+        "APIs"
+      ],
+      "demo": "https://roniratsimba.github.io/commit-generator-site/",
+      "github": "https://github.com/roniratsimba/commit-generator",
+      "images": [
+        "images/projects/commit-gen/1.png",
+        "images/projects/commit-gen/2.png",
+        "images/projects/commit-gen/3.png"
+      ]
+    },
+    {
       "id": 4,
-      "title": "Campus Scheduler",
-      "description": "Système fullstack de gestion et d'optimisation des emplois du temps universitaires : planification des salles, enseignants et groupes, détection de conflits, recherche de salles libres, consultation publique et interface d'administration sécurisée.",
-      "stack": ["React", "TypeScript", "Symfony", "Doctrine ORM", "JWT", "PostgreSQL"],
-      "demo": "",
-      "github": "https://github.com/roniratsimba/campus-scheduler",
+      "title": "Mobile Money Simulation",
+      "kicker": {
+        "en": "JAVA APPLICATION",
+        "fr": "APPLICATION JAVA"
+      },
+      "description": {
+        "fr": "Application web Java simulant un service de transactions Mobile Money. Elle couvre les envois, retraits, calcul des frais, génération de relevés PDF et notifications automatisées, avec PostgreSQL comme couche de données.",
+        "en": "A Java web application simulating a Mobile Money transaction service. It covers transfers, withdrawals, fee calculation, PDF statements and automated notifications, with PostgreSQL as its data layer."
+      },
+      "stack": [
+        "Java 17",
+        "JSP / Servlets",
+        "PostgreSQL",
+        "Maven"
+      ],
+      "github": "https://github.com/roniratsimba/mobile-money",
       "images": []
     },
     {
       "id": 5,
       "title": "Gestion Restaurant",
-      "description": "",
-      "stack": ["PHP", "XAMPP", "MySQL", "JavaScript"],
-      "demo": "",
+      "kicker": {
+        "en": "BUSINESS APPLICATION",
+        "fr": "APPLICATION DE GESTION"
+      },
+      "description": {
+        "fr": "Application web de gestion de restaurant développée pour structurer les opérations et la gestion des données au quotidien. Le projet met l’accent sur une interface pratique et sur une organisation claire des fonctionnalités métier.",
+        "en": "A web application for restaurant management, built to structure day-to-day operations and data management. The project focuses on a practical interface and a clear organization of business functionality."
+      },
+      "stack": [
+        "PHP",
+        "XAMPP",
+        "MySQL",
+        "JavaScript"
+      ],
       "github": "https://github.com/roniratsimba/restau-management",
-      "images": ["images/projects/restau/GestResto1.png", "images/projects/restau/GestResto2.png", "images/projects/restau/GestResto3.png", "images/projects/restau/GestResto4.png", "images/projects/restau/GestResto5.png"]
+      "images": [
+        "images/projects/restau/GestResto1.png",
+        "images/projects/restau/GestResto2.png",
+        "images/projects/restau/GestResto3.png",
+        "images/projects/restau/GestResto4.png",
+        "images/projects/restau/GestResto5.png"
+      ]
     },
     {
       "id": 6,
-      "title": "Portfolio Personnel",
-      "description": "Portfolio interactif sous forme de faux OS cyberpunk : un terminal où l'on explore mes projets, compétences et parcours comme dans un mini-RPG.",
-      "stack": ["React", "TypeScript"],
+      "title": "Portfolio Terminal",
+      "kicker": {
+        "en": "EXPERIMENTAL",
+        "fr": "EXPÉRIMENTAL"
+      },
+      "description": {
+        "fr": "Expérimentation de portfolio personnel présentée sous la forme d’un environnement interactif inspiré d’un terminal et d’un bureau. Le projet explore volontairement l’interface, la navigation et les interactions comme alternative à un portfolio classique.",
+        "en": "An experimental personal portfolio presented as an interactive terminal-and-desktop environment. The project deliberately explores interface, navigation and interaction as an alternative to a conventional portfolio."
+      },
+      "stack": [
+        "React",
+        "TypeScript"
+      ],
       "demo": "https://roni-terminal.vercel.app/",
       "github": "https://github.com/roniratsimba/portfolio-fun",
-      "images": ["images/projects/fun-portfolio/terminal.png", "images/projects/fun-portfolio/bureau.png", "images/projects/fun-portfolio/mobile.png", "images/projects/fun-portfolio/hire.png"]
+      "images": [
+        "images/projects/fun-portfolio/terminal.png",
+        "images/projects/fun-portfolio/bureau.png",
+        "images/projects/fun-portfolio/mobile.png",
+        "images/projects/fun-portfolio/hire.png"
+      ]
     }
   ]
 }

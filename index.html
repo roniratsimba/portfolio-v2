@@ -1,310 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roro — Développeur Web</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="R. — Développeur Full-Stack. Applications web, APIs et outils numériques avec Symfony, React et TypeScript.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="R. — Full-Stack Developer">
+  <meta property="og:description" content="Applications web, APIs et outils numériques construits avec Symfony, React et TypeScript.">
+  <meta property="og:type" content="website">
+  <title>R. — Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=gambetta@200,400,600,700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <!-- des font family -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=VT323&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js" defer></script>
-  <script src="js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
 
-  <!-- Loader -->
-  <div class="loader-container" id="loader">
-    <div class="container">
-      <div class="cube"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="R. — accueil">R.</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#work" data-i18n="nav.work">Projets</a>
+      <a href="#experience" data-i18n="nav.experience">Expérience</a>
+      <a href="#about" data-i18n="nav.about">À propos</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="language-switcher" aria-label="Sélection de langue">
+      <span class="language-label" data-i18n="language.label">Français</span>
+      <button type="button" class="language-button" data-lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" class="language-button" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
     </div>
-    <p class="loader-text">Roro</p>
-  </div>
+  </header>
 
-  <div class="glow-bg">
-    <div class="circle circle-blue"></div>
-    <div class="circle circle-pink"></div>
-    
-    <!-- Glow Grid Pattern -->
-    <svg class="glow-grid" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <defs>
-        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0, 163, 255, 0.1)" stroke-width="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100" height="100" fill="url(#grid)"/>
-    </svg>
-    
-    <!-- Wave Shape -->
-    <svg class="wave-shape" viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path fill="rgba(0, 163, 255, 0.05)" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-    </svg>
-    
-    <!-- Blurred Shape -->
-    <div class="blurred-shape shape-1"></div>
-    <div class="blurred-shape shape-2"></div>
-  </div>
-
-  <!-- <nav class="navbar">
-    <a href="#" class="logo">roro<span>.dev</span></a>
-  </nav> -->
-
-  <div class="availability-banner">
-    <div class="availability-indicator"></div>
-    <span class="availability-text">Disponible tout de suite</span>
-  </div>
-
-  <section class="hero" id="hero">
-    <div class="hero-left">
-      <div class="hero-media">
-        <div class="image-frame">
-          <img src="images/me/moi.jpeg" alt="Roni Ratsimbazafy" class="profile-avatar">
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">DÉVELOPPEUR FULL-STACK</p>
+        <h1 id="hero-title"><span data-i18n="hero.title">Je construis des produits web</span><br><em data-i18n="hero.titleEm">qui ont une raison d'exister.</em></h1>
+        <p class="hero-description" data-i18n="hero.description">Je conçois et développe des applications web, des APIs et des outils numériques avec Symfony, React et TypeScript.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work"><span data-i18n="hero.work">Voir les projets</span><span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="CV_Roni_Ratsimbazafy.pdf" download data-i18n="hero.cv">Télécharger le CV</a>
+        </div>
+        <div class="hero-meta">
+          <span data-i18n="hero.based">Basé à Madagascar</span>
+          <span data-i18n="hero.remote">Ouvert aux opportunités à distance</span>
         </div>
       </div>
-    </div>
-
-    <div class="hero-center">
-      <h2 class="hero-intro">Hi, je suis</h2>
-      <h1 class="hero-title">RONI</h1>
-      <p class="hero-subtitle">Développeur Full-Stack Junior    PHP/Symfony & React</p>
-    </div>
-
-    <div class="hero-right">
-      <div class="hero-actions">
-        <div class="availability-status">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle; margin-right: 8px;">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-          </svg>
-          Disponible maintenant
-        </div>
-        <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
-
-        <div class="cv-download">
-          <button class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
-            </svg>
-            <span class="text">Download CV</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
-            </svg>
-          </button>
-        </div>
+      <div class="hero-aside">
+        <div class="portrait-wrap"><img src="images/me/moi.jpeg" alt="Roni Ratsimbazafy" class="portrait" width="420" height="520"></div>
+        <div class="hero-aside-note"><span class="mono">01</span><p data-i18n="hero.note">Ingénierie logicielle<br>avec une approche produit.</p></div>
       </div>
+    </section>
 
-      <div class="hero-socials">
-        <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/roni.ratsimbazafy.2288" target="_blank" rel="noopener">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://w3.org">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </a>
-        <a href="mailto:roniratsimba@gmail.com" class="email-link">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-        </a>
+    <section class="trust-strip" aria-label="Stack principale">
+      <span data-i18n="stack.label">Stack principale</span>
+      <div class="stack-line"><span>Symfony</span><i>·</i><span>React</span><i>·</i><span>TypeScript</span><i>·</i><span>PostgreSQL</span><i>·</i><span>Git</span></div>
+    </section>
+
+    <section class="section work-section" id="work" aria-labelledby="work-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow" data-i18n="work.eyebrow">PROJETS SÉLECTIONNÉS</p><h2 id="work-title" data-i18n="work.title">Des projets construits pour résoudre quelque chose.</h2></div>
+        <p data-i18n="work.description">Chaque projet montre une manière de réfléchir, de construire et de transformer une idée en produit utilisable.</p>
       </div>
-    </div>
-  </section>
+      <div class="projects-list" id="projects-container" aria-live="polite"></div>
+    </section>
 
-  <section class="section about" id="about">
-    <h2 class="section-title">À propos</h2>
-    <div class="about-container">
-      <p class="lead-text">
-        Étudiant en Génie Logiciel passionné par le web et l'innovation, je développe des applications performantes en combinant la stack Symfony / React avec l'intégration d'IA et d'automatisations intelligentes. Ma curiosité et ma réactivité technique me permettent de m'adapter rapidement à vos défis technologiques. À la recherche d'un stage de fin d'études ou d'un premier CDI à partir de septembre 2026, je suis pleinement disponible pour rejoindre vos équipes, sur site ou à distance.</p>
-      <div class="about-location">
-        <div class="location-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Madagascar (Antananarivo / Fianarantsoa)</span>
+    <div class="light-zone">
+      <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-heading compact reveal">
+          <div><p class="eyebrow" data-i18n="engineering.eyebrow">INGÉNIERIE</p><h2 id="capabilities-title" data-i18n="engineering.title">Ma façon de construire.</h2></div>
+          <p data-i18n="engineering.description">Je privilégie une architecture claire, un code maintenable et des interfaces qui restent au service du produit.</p>
         </div>
-        <div class="location-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>+261 34 22 249 38</span>
+        <div class="capability-grid">
+          <article class="reveal"><span class="number">01</span><h3 data-i18n="cap.backend.title">Backend & APIs</h3><p data-i18n="cap.backend.text">Architecture applicative, APIs REST, authentification, autorisation, données relationnelles et logique métier.</p><div class="tags"><span>PHP</span><span>Symfony</span><span>Doctrine</span><span>Node.js</span></div></article>
+          <article class="reveal"><span class="number">02</span><h3 data-i18n="cap.frontend.title">Frontend</h3><p data-i18n="cap.frontend.text">Interfaces responsive pensées autour d'interactions utiles, d'un état lisible et de composants prévisibles.</p><div class="tags"><span>React</span><span>TypeScript</span><span>JavaScript</span><span>Tailwind</span></div></article>
+          <article class="reveal"><span class="number">03</span><h3 data-i18n="cap.data.title">Données & architecture</h3><p data-i18n="cap.data.text">Modélisation relationnelle et structure applicative conçues pour garder la complexité compréhensible à mesure que le projet grandit.</p><div class="tags"><span>PostgreSQL</span><span>MySQL</span><span>UML</span><span>POO</span></div></article>
+          <article class="reveal"><span class="number">04</span><h3 data-i18n="cap.workflow.title">Outils & workflow</h3><p data-i18n="cap.workflow.text">Gestion de versions, gestionnaires de paquets et workflow orienté terminal pour un développement reproductible.</p><div class="tags"><span>Git</span><span>GitHub</span><span>Composer</span><span>NPM</span><span>Maven</span></div></article>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section class="section services" id="services">
-    <h2 class="section-title">Ce que je fais</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Backend Development</h3>
-        <p>Conception d'architectures solides, gestion avancée de bases de données relationnelles, sécurité et création d'API REST performantes.</p>
-        <span class="tech-tag">Symfony • Node.js • Java • PostgreSQL</span>
-      </div>
-      <div class="service-card">
-        <h3>Frontend & Mobile</h3>
-        <p>Développement d'interfaces utilisateur modernes, réactives et fluides pour le web et les applications mobiles.</p>
-        <span class="tech-tag">React.js • TypeScript • Flutter • Tailwind</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section skills" id="skills">
-    <h2 class="section-title">Compétences techniques</h2>
-    <div class="skills-wrapper" id="skills-container">
-      <!-- Skills will be loaded dynamically from JSON -->
-    </div>
-  </section>
-
-  <section class="section experiences" id="experiences">
-    <h2 class="section-title">Parcours</h2>
-    <div class="timeline" id="experiences-container">
-      <!-- Experiences will be loaded dynamically from JSON -->
-    </div>
-  </section>
-
-  <section class="section projects" id="projects">
-    <h2 class="section-title">Projets phares</h2>
-    <div class="projects-grid" id="projects-container">
-      <!-- Projects will be loaded dynamically from JSON -->
-    </div>
-  </section>
-
-  <section class="section contact" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-info-simple">
-      <h3>Discutons de votre prochain projet</h3>
-      <p>Disponible dès septembre 2026 pour un stage de fin d'études ou un premier CDI junior.</p>
-
-      <div class="contact-details">
-        <div class="contact-item">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <a href="mailto:roniratsimba@gmail.com">roniratsimba@gmail.com</a>
+      <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading compact reveal">
+          <div><p class="eyebrow" data-i18n="experience.eyebrow">EXPÉRIENCE</p><h2 id="experience-title" data-i18n="experience.title">Le travail derrière les projets.</h2></div>
         </div>
-        <div class="contact-item">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <a href="tel:+261342224938">+261 34 22 249 38</a>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Madagascar (Antananarivo / Fianarantsoa)</span>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          <a href="https://github.com/roniratsimba" target="_blank" rel="noopener">github.com/roniratsimba</a>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="experience-list" id="experiences-container" aria-live="polite"></div>
+      </section>
 
-  <!-- Floating Message Button -->
-  <div class="floating-message-btn" id="floatingMessageBtn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-  </div>
-
-  <!-- Contact Modal -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Une opportunité ? Parlons-en</h3>
-        <button class="modal-close" id="modalClose">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="contactForm" action="https://formspree.io/f/xyegqrqd" method="POST">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="about-grid">
+          <div class="reveal"><p class="eyebrow" data-i18n="about.eyebrow">À PROPOS</p><h2 id="about-title"><span data-i18n="about.title1">Toujours en apprentissage.</span><br><span data-i18n="about.title2">Déjà dans la construction.</span></h2></div>
+          <div class="about-copy reveal">
+            <p class="lead" data-i18n="about.lead">Je suis Roni, connu en ligne sous le nom de Roro — étudiant en génie logiciel et développeur full-stack basé à Madagascar.</p>
+            <p data-i18n="about.p1">Je travaille principalement avec Symfony, React, TypeScript et PostgreSQL. J'aime partir d'un problème, modéliser les données et la logique métier, construire le backend puis aboutir à une interface réellement utilisable et maintenable.</p>
+            <p data-i18n="about.p2">Ma direction actuelle est l'ingénierie logicielle approfondie : architecture, Linux et outils de développement, déploiement, tests et automatisation pratique.</p>
+            <div class="about-details"><div><span data-i18n="about.location">Localisation</span><strong>Madagascar</strong></div><div><span data-i18n="about.focus">Orientation</span><strong data-i18n="about.focusValue">Full-stack / Backend</strong></div><div><span data-i18n="about.education">Formation</span><strong data-i18n="about.educationValue">Génie logiciel</strong></div></div>
           </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button
-            type="submit"
-            class="submit-button relative bottom-0 flex justify-center items-center gap-2 border border-[#000] rounded-xl text-[#FFF] font-black bg-[#000] uppercase px-8 py-4 z-10 overflow-hidden ease-in-out duration-700 group hover:text-[#000] hover:bg-[#FFF] active:scale-95 active:duration-0 focus:bg-[#FFF] focus:text-[#000] isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#FFF] before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700"
-          >
-            <span
-              class="truncate eaes-in-out duration-300 group-active:-translate-x-96 group-focus:translate-x-96"
-              >Envoyer</span
-            >
-            <div
-              class="absolute flex flex-row justify-center items-center gap-2 -translate-x-96 eaes-in-out duration-300 group-active:translate-x-0 group-focus:translate-x-0"
-            >
-              <div
-                class="animate-spin size-4 border-2 border-[#000] border-t-transparent rounded-full"
-              ></div>
-              
-            </div>
-            <svg
-              class="fill-[#FFF] group-hover:fill-[#000] group-hover:-translate-x-0 group-active:translate-x-96 group-active:duration-0 group-focus:translate-x-96 group-focus:fill-[#000] ease-in-out duration-700"
-              stroke="currentColor"
-              fill="currentColor"
-              stroke-width="0"
-              viewBox="0 0 512 512"
-              height="16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m476.59 227.05-.16-.07L49.35 49.84A23.56 23.56 0 0 0 27.14 52 24.65 24.65 0 0 0 16 72.59v113.29a24 24 0 0 0 19.52 23.57l232.93 43.07a4 4 0 0 1 0 7.86L35.53 303.45A24 24 0 0 0 16 327v113.31A23.57 23.57 0 0 0 26.59 460a23.94 23.94 0 0 0 13.22 4 24.55 24.55 0 0 0 9.52-1.93L476.4 285.94l.19-.09a32 32 0 0 0 0-58.8z"
-              ></path>
-            </svg>
-          </button>
-        </form>
-        <div class="thank-you-message" id="thankYouMessage" style="display: none;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          <h4>Merci pour votre message !</h4>
-          <p>Je vous répondrai dans les plus brefs délais.</p>
         </div>
-      </div>
+      </section>
     </div>
-  </div>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-card reveal">
+        <p class="eyebrow" data-i18n="contact.eyebrow">CONTACT</p>
+        <h2 id="contact-title" data-i18n="contact.title">Une opportunité ? Discutons-en.</h2>
+        <p data-i18n="contact.description">Un projet, une opportunité professionnelle ou simplement envie d'échanger ? Écrivez-moi.</p>
+        <div class="contact-actions"><button class="button button-primary" type="button" data-open-contact><span data-i18n="contact.cta">Ouvrir le contact</span><span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2026 RATSIMBAZAFY Roni Henintsoa. Tous droits réservés.</p>
-    </div>
+    <div><a class="brand" href="#top">R.</a></div>
+    <div class="footer-links"><a href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub</a><a href="mailto:roniratsimba@gmail.com">Email</a><button type="button" data-open-contact data-i18n="footer.contact">Contact</button><a href="#top" data-i18n="footer.top">Retour en haut ↑</a></div>
+    <p class="copyright">© 2026 R. / Roni Ratsimbazafy</p>
   </footer>
 
+  <div class="modal" id="contact-modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="modal-close" type="button" data-close-modal data-i18n-aria="modal.close" aria-label="Fermer">×</button>
+      <p class="eyebrow" data-i18n="modal.eyebrow">ÉCHANGEONS</p>
+      <h2 id="contact-modal-title" data-i18n="modal.title">Une opportunité ? Discutons-en.</h2>
+      <p data-i18n="modal.description">Un projet, une opportunité professionnelle ou simplement envie d'échanger ? Écrivez-moi.</p>
+      <div class="modal-actions"><a class="button button-primary" href="mailto:roniratsimba@gmail.com" data-i18n="modal.email">Écrire un email</a><a class="button button-ghost" href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="modal-meta"><span>roniratsimba@gmail.com</span><span>Madagascar · Remote</span></div>
+    </section>
+  </div>
+
+  <div class="gallery-modal" id="gallery-modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-gallery></div>
+    <section class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+      <div class="gallery-header"><div><p class="eyebrow" id="gallery-kicker">PROJECT</p><h2 id="gallery-title">Project</h2></div><button class="modal-close" type="button" data-close-gallery data-i18n-aria="modal.close" aria-label="Fermer">×</button></div>
+      <div class="gallery-stage"><button class="gallery-arrow gallery-prev" type="button" data-gallery-prev data-i18n-aria="gallery.previous" aria-label="Image précédente">←</button><img id="gallery-image" src="" alt="" width="1600" height="900"><button class="gallery-arrow gallery-next" type="button" data-gallery-next data-i18n-aria="gallery.next" aria-label="Image suivante">→</button></div>
+      <div class="gallery-footer"><span id="gallery-counter">01 / 01</span><div id="gallery-thumbs" class="gallery-thumbs"></div></div>
+    </section>
+  </div>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

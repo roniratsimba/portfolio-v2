@@ -1,13 +1,20 @@
 {
   "experiences": [
     {
-      "id": 1,
-      "date": "Sept 2025 - Déc 2025",
-      "title": "Stagiaire Développeur Web",
+      "date": "Sep — Dec 2025",
+      "role": "Web Developer Intern",
       "company": "Direction Générale des Impôts",
       "location": "Antananarivo",
-      "description": "Conception et déploiement d'une application web de gestion et de suivi des stagiaires. Développement de modules clés : gestion des utilisateurs et des rôles, rapports hebdomadaires, système de notifications et archivage des données.",
+      "description": "Designed and deployed a web application for intern management and tracking, including user roles, weekly reports, notifications and data archiving.",
       "stack": ["Symfony", "PostgreSQL", "Doctrine ORM", "Twig", "JavaScript"]
+    },
+    {
+      "date": "2024 — Present",
+      "role": "Software Engineering",
+      "company": "ENI Fianarantsoa",
+      "location": "Madagascar",
+      "description": "Licence-level studies focused on software engineering and databases.",
+      "stack": []
     }
   ]
 }

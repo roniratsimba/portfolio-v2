@@ -1,473 +1,115 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Loader
-  const loader = document.getElementById('loader');
-  
-  // Hide loader after 2.5 seconds
-  setTimeout(() => {
-    loader.classList.add('hidden');
-    
-    // Start hero animations after loader is hidden
-    setTimeout(() => {
-      initHeroAnimations();
-    }, 500);
-  }, 2500);
-
-  // Enregistrement du plugin ScrollTrigger de GSAP
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Load JSON data
-  loadJSONData();
-
-  function initHeroAnimations() {
-    // 1. Animation de la section Hero à l'ouverture
-    const heroTl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
-
-    heroTl
-      .from(".hero-intro", { y: -20, opacity: 0, delay: 0.2 })
-      .from(".hero-title", { y: 30, opacity: 0 }, "-=0.6")
-      .from(".hero-subtitle", { y: 20, opacity: 0 }, "-=0.6")
-      .from(".availability-status", { y: 20, opacity: 0 }, "-=0.6")
-      .from(".hero-actions", { y: 20, opacity: 0 }, "-=0.6")
-      .from(".hero-media", { scale: 0.9, opacity: 0 }, "-=0.8");
+const CONTENT = {
+  en: {
+    skip:'Skip to content', 'nav.work':'Work','nav.experience':'Experience','nav.about':'About','nav.contact':'Contact','language.label':'Français','header.available':'Available',
+    'hero.eyebrow':'FULL-STACK DEVELOPER','hero.title':'I build web products','hero.titleEm':'that work.','hero.description':'I design and develop reliable web applications, APIs and digital products with Symfony, React and TypeScript.','hero.work':'View selected work','hero.cv':'Download CV','hero.based':'Based in Madagascar','hero.remote':'Open to remote opportunities','hero.note':'Software engineering<br>with a product mindset.',
+    'stack.label':'Core stack','work.eyebrow':'SELECTED WORK','work.title':'Projects with a purpose.','work.description':'Not a list of technologies. A selection of things I have actually built.',
+    'engineering.eyebrow':'ENGINEERING','engineering.title':'How I work.','engineering.description':'I care about clear architecture, maintainable code and interfaces that stay out of the way.',
+    'cap.backend.title':'Backend & APIs','cap.backend.text':'Application architecture, REST APIs, authentication, authorization, relational data and business logic.','cap.frontend.title':'Frontend','cap.frontend.text':'Responsive interfaces built around useful interactions, readable state and predictable components.','cap.data.title':'Data & Architecture','cap.data.text':'Relational modelling and application structure designed to keep complexity understandable as a project grows.','cap.workflow.title':'Tools & Workflow','cap.workflow.text':'Version control, package management and a terminal-first workflow focused on repeatable development.',
+    'experience.eyebrow':'EXPERIENCE','experience.title':"Where I've worked.",'about.eyebrow':'ABOUT RORO','about.title1':'Still learning.','about.title2':'Already building.','about.lead':"I'm Roni, known online as Roro — a software engineering student and full-stack developer based in Madagascar.",'about.p1':'I work mainly across Symfony, React, TypeScript and PostgreSQL. I enjoy taking a problem from data modelling and backend logic to a usable interface, then making the whole thing easier to maintain.','about.p2':'My current direction is deeper software engineering: stronger architecture, Linux and developer tooling, deployment, testing and practical automation.','about.location':'Location','about.focus':'Focus','about.focusValue':'Full-stack / Backend','about.education':'Education','about.educationValue':'Software Engineering',
+    'contact.eyebrow':'CONTACT','contact.title':'An opportunity? Let’s talk.','contact.description':'A project, a professional opportunity, or simply want to exchange? Write to me.','contact.cta':'Open contact','footer.contact':'Contact','footer.top':'Back to top ↑','projects.live':'Live demo ↗','projects.source':'Source code ↗','projects.gallery':'View project','projects.noImage':'Project preview coming soon.',
+    'modal.eyebrow':"LET'S TALK",'modal.title':'An opportunity? Let’s talk.','modal.description':'A project, a professional opportunity, or simply want to exchange? Write to me.','modal.email':'Write an email','modal.close':'Close','gallery.previous':'Previous image','gallery.next':'Next image'
+  },
+  fr: {
+    skip:'Aller au contenu','nav.work':'Projets','nav.experience':'Expérience','nav.about':'À propos','nav.contact':'Contact','language.label':'Français','header.available':'Disponible',
+    'hero.eyebrow':'DÉVELOPPEUR FULL-STACK','hero.title':'Je construis des produits web','hero.titleEm':'qui fonctionnent.','hero.description':'Je conçois et développe des applications web fiables, des APIs et des produits numériques avec Symfony, React et TypeScript.','hero.work':'Voir mes projets','hero.cv':'Télécharger le CV','hero.based':'Basé à Madagascar','hero.remote':'Ouvert aux opportunités à distance','hero.note':'Ingénierie logicielle<br>avec une approche produit.',
+    'stack.label':'Stack principale','work.eyebrow':'PROJETS SÉLECTIONNÉS','work.title':'Des projets qui répondent à un besoin.','work.description':'Pas une simple liste de technologies. Une sélection de projets que j’ai réellement construits.',
+    'engineering.eyebrow':'INGÉNIERIE','engineering.title':'Ma façon de travailler.','engineering.description':'Je privilégie une architecture claire, un code maintenable et des interfaces qui restent au service du produit.',
+    'cap.backend.title':'Backend & APIs','cap.backend.text':'Architecture applicative, APIs REST, authentification, autorisation, données relationnelles et logique métier.','cap.frontend.title':'Frontend','cap.frontend.text':'Interfaces responsive pensées autour d’interactions utiles, d’un état lisible et de composants prévisibles.','cap.data.title':'Données & Architecture','cap.data.text':'Modélisation relationnelle et structure applicative conçues pour garder la complexité compréhensible à mesure que le projet grandit.','cap.workflow.title':'Outils & Workflow','cap.workflow.text':'Gestion de versions, gestionnaires de paquets et workflow orienté terminal pour un développement reproductible.',
+    'experience.eyebrow':'EXPÉRIENCE','experience.title':'Mon parcours professionnel.','about.eyebrow':'À PROPOS DE RORO','about.title1':'Toujours en apprentissage.','about.title2':'Déjà dans la construction.','about.lead':'Je suis Roni, connu en ligne sous le nom de Roro — étudiant en génie logiciel et développeur full-stack basé à Madagascar.','about.p1':'Je travaille principalement avec Symfony, React, TypeScript et PostgreSQL. J’aime partir d’un problème, modéliser les données et la logique métier, construire le backend puis aboutir à une interface réellement utilisable et maintenable.','about.p2':'Ma direction actuelle est l’ingénierie logicielle approfondie : architecture, Linux et outils de développement, déploiement, tests et automatisation pratique.','about.location':'Localisation','about.focus':'Orientation','about.focusValue':'Full-stack / Backend','about.education':'Formation','about.educationValue':'Génie logiciel',
+    'contact.eyebrow':'CONTACT','contact.title':'Une opportunité ? Discutons-en.','contact.description':'Un projet, une opportunité professionnelle ou simplement envie d’échanger ? Écrivez-moi.','contact.cta':'Ouvrir le contact','footer.contact':'Contact','footer.top':'Retour en haut ↑','projects.live':'Démo en ligne ↗','projects.source':'Code source ↗','projects.gallery':'Voir le projet','projects.noImage':'Aperçu du projet bientôt disponible.',
+    'modal.eyebrow':'ÉCHANGEONS','modal.title':'Une opportunité ? Discutons-en.','modal.description':'Un projet, une opportunité professionnelle ou simplement envie d’échanger ? Écrivez-moi.','modal.email':'Écrire un email','modal.close':'Fermer','gallery.previous':'Image précédente','gallery.next':'Image suivante'
   }
+};
 
-  // 2. Animation au scroll pour le footer uniquement
-  const footer = document.querySelector(".footer");
-  if (footer) {
-    gsap.from(footer, {
-      scrollTrigger: {
-        trigger: footer,
-        start: "top 95%",
-        toggleActions: "play none none none"
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out"
-    });
-  }
+const FALLBACK_DATA = {
+  projects:[
+    {id:1,title:'Campus Scheduler',kicker:{en:'FULL-STACK SYSTEM',fr:'SYSTÈME FULL-STACK'},description:{en:'A scheduling platform for universities: room, teacher and group planning, conflict detection, free-room search and a secured administration interface.',fr:'Une plateforme de gestion des emplois du temps universitaires : planification des salles, enseignants et groupes, détection des conflits, recherche de salles libres et interface d’administration sécurisée.'},stack:['React','TypeScript','Symfony','Doctrine','JWT','PostgreSQL'],github:'https://github.com/roniratsimba/campus-scheduler',featured:true,images:[]},
+    {id:2,title:'Calculateur IRSA Madagascar',kicker:{en:'WEB APPLICATION',fr:'APPLICATION WEB'},description:{en:'A focused web application for calculating Malagasy salary income tax using the 2026 tax scale, with a responsive interface built for quick, practical use.',fr:'Une application web dédiée au calcul de l’IRSA selon le barème fiscal malgache 2026, avec une interface responsive pensée pour une utilisation rapide et pratique.'},stack:['React','TypeScript','Tailwind CSS','Vite'],demo:'https://calcul-irsa-v1.vercel.app/',github:'https://github.com/roniratsimba/calcul-irsa-v1',images:['images/projects/irsa/info.png','images/projects/irsa/mobile.png','images/projects/irsa/calcul.png','images/projects/irsa/bareme.png']},
+    {id:3,title:'Commit Generator',kicker:{en:'DEVELOPER TOOL',fr:'OUTIL DE DÉVELOPPEMENT'},description:{en:'A CLI that analyses Git changes and generates conventional commit messages, with optional AI support through multiple providers.',fr:'Un outil en ligne de commande qui analyse les changements Git et génère des messages de commit conventionnels, avec un support IA optionnel via plusieurs fournisseurs.'},stack:['Python','CLI','Git','APIs'],demo:'https://roniratsimba.github.io/commit-generator-site/',github:'https://github.com/roniratsimba/commit-generator',images:['images/projects/commit-gen/1.png','images/projects/commit-gen/2.png','images/projects/commit-gen/3.png']},
+    {id:4,title:'Mobile Money Simulation',kicker:{en:'JAVA APPLICATION',fr:'APPLICATION JAVA'},description:{en:'A financial transaction simulator covering transfers, withdrawals, fee calculation, PDF statements and automated notifications.',fr:'Un simulateur de transactions financières couvrant les transferts, retraits, calcul des frais, relevés PDF et notifications automatisées.'},stack:['Java 17','JSP / Servlets','PostgreSQL','Maven'],github:'https://github.com/roniratsimba/mobile-money',images:[]},
+    {id:5,title:'Gestion Restaurant',kicker:{en:'BUSINESS APPLICATION',fr:'APPLICATION DE GESTION'},description:{en:'A restaurant management application built around day-to-day operational workflows, data management and a practical web interface.',fr:'Une application de gestion de restaurant pensée autour des opérations quotidiennes, de la gestion des données et d’une interface web pratique.'},stack:['PHP','XAMPP','MySQL','JavaScript'],github:'https://github.com/roniratsimba/restau-management',images:['images/projects/restau/GestResto1.png','images/projects/restau/GestResto2.png','images/projects/restau/GestResto3.png','images/projects/restau/GestResto4.png','images/projects/restau/GestResto5.png']},
+    {id:6,title:'Portfolio Terminal',kicker:{en:'EXPERIMENTAL',fr:'EXPÉRIMENTAL'},description:{en:'A second personal portfolio presented as a terminal-style interactive environment — an exploration of interface and interaction design.',fr:'Un second portfolio personnel présenté comme un environnement interactif de type terminal — une exploration du design d’interface et des interactions.'},stack:['React','TypeScript'],demo:'https://roni-terminal.vercel.app/',github:'https://github.com/roniratsimba/portfolio-fun',images:['images/projects/fun-portfolio/terminal.png','images/projects/fun-portfolio/bureau.png','images/projects/fun-portfolio/mobile.png','images/projects/fun-portfolio/hire.png']}
+  ],
+  experiences:[
+    {date:'Sep — Dec 2025',role:{en:'Web Developer Intern',fr:'Stagiaire développeur web'},company:'Direction Générale des Impôts',location:'Antananarivo',description:{en:'Designed and deployed a web application for intern management and tracking, including user roles, weekly reports, notifications and data archiving.',fr:'Conception et déploiement d’une application web de gestion et de suivi des stagiaires, avec gestion des rôles, rapports hebdomadaires, notifications et archivage des données.'},stack:['Symfony','PostgreSQL','Doctrine ORM','Twig','JavaScript']},
+    {date:'2024 — Present',role:{en:'Software Engineering',fr:'Génie logiciel'},company:'ENI Fianarantsoa',location:'Madagascar',description:{en:'Licence-level studies focused on software engineering and databases.',fr:'Formation de niveau Licence axée sur le génie logiciel et les bases de données.'},stack:[]}
+  ]
+};
 
-  // 3. Contact Modal Handler
-  const floatingMessageBtn = document.getElementById('floatingMessageBtn');
-  const contactModal = document.getElementById('contactModal');
-  const modalClose = document.getElementById('modalClose');
-  const contactForm = document.getElementById('contactForm');
-  const thankYouMessage = document.getElementById('thankYouMessage');
+let DATA=FALLBACK_DATA;
+let currentLanguage=localStorage.getItem('roro-language')||'en';
+let galleryProject=null;
+let galleryIndex=0;
+let lastFocusedElement=null;
 
-  if (floatingMessageBtn && contactModal) {
-    floatingMessageBtn.addEventListener('click', () => {
-      contactModal.classList.add('active');
-    });
-  }
+const escapeHTML=value=>String(value??'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+const t=key=>CONTENT[currentLanguage][key]??key;
 
-  if (modalClose && contactModal) {
-    modalClose.addEventListener('click', () => {
-      contactModal.classList.remove('active');
-    });
-  }
+async function loadData(){
+  try{const response=await fetch('data/projects.json',{cache:'no-store'});if(response.ok){const external=await response.json();if(external.projects?.length){DATA.projects=external.projects.map(normalizeProject);}}}catch(error){console.info('Using embedded project data.',error);}
+}
+function normalizeProject(p){return {...p,images:p.images||[]};}
 
-  if (contactModal) {
-    contactModal.addEventListener('click', (e) => {
-      if (e.target === contactModal) {
-        contactModal.classList.remove('active');
-      }
-    });
-  }
-
-  // Formspree Form Handler
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(contactForm);
-
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          contactForm.style.display = 'none';
-          thankYouMessage.style.display = 'block';
-          setTimeout(() => {
-            contactModal.classList.remove('active');
-            setTimeout(() => {
-              contactForm.style.display = 'flex';
-              thankYouMessage.style.display = 'none';
-              contactForm.reset();
-            }, 500);
-          }, 3000);
-        } else {
-          alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-      }).catch(error => {
-        alert('Une erreur est survenue. Veuillez réessayer.');
-      });
-    });
-  }
-
-  // 4. CV Download Handler
-  const cvButton = document.querySelector('.cv-download .animated-button');
-
-  if (cvButton) {
-    cvButton.addEventListener('click', function() {
-      // Download CV file
-      window.location.href = 'CV_Roni_Ratsimbazafy.pdf';
-    });
-  }
-});
-
-async function loadJSONData() {
-  try {
-    // Load projects
-    const projectsResponse = await fetch('data/projects.json');
-    if (projectsResponse.ok) {
-      const projectsData = await projectsResponse.json();
-      renderProjects(projectsData.projects);
-    } else {
-      console.error('Failed to load projects.json, using fallback');
-      renderProjectsFallback();
-    }
-
-    // Load experiences
-    const experiencesResponse = await fetch('data/experiences.json');
-    if (experiencesResponse.ok) {
-      const experiencesData = await experiencesResponse.json();
-      renderExperiences(experiencesData.experiences);
-    } else {
-      console.error('Failed to load experiences.json, using fallback');
-      renderExperiencesFallback();
-    }
-
-    // Load education
-    const educationResponse = await fetch('data/education.json');
-    if (educationResponse.ok) {
-      const educationData = await educationResponse.json();
-      renderEducation(educationData.education);
-    } else {
-      console.error('Failed to load education.json, using fallback');
-      renderEducationFallback();
-    }
-
-    // Load skills
-    const skillsResponse = await fetch('data/skills.json');
-    if (skillsResponse.ok) {
-      const skillsData = await skillsResponse.json();
-      renderSkills(skillsData.skills);
-    } else {
-      console.error('Failed to load skills.json, using fallback');
-      renderSkillsFallback();
-    }
-
-  } catch (error) {
-    console.error('Error loading JSON data:', error);
-    // Fallback to static content
-    renderProjectsFallback();
-    renderExperiencesFallback();
-    renderEducationFallback();
-    renderSkillsFallback();
-  }
+function applyTranslations(lang){
+  if(!CONTENT[lang])lang='en';
+  currentLanguage=lang;localStorage.setItem('roro-language',lang);document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(CONTENT[lang][key]!==undefined)el.innerHTML=CONTENT[lang][key];});
+  document.querySelectorAll('.language-button').forEach(btn=>{const active=btn.dataset.lang===lang;btn.classList.toggle('is-active',active);btn.setAttribute('aria-pressed',String(active));});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const key=el.dataset.i18nAria;if(CONTENT[lang][key])el.setAttribute('aria-label',CONTENT[lang][key]);});
+  renderProjects();renderExperiences();
 }
 
-// function renderProjects(projects) {
-//   const container = document.getElementById('projects-container');
-//   if (!container) return;
-
-//   container.innerHTML = projects.map((project, index) => {
-//     // Use images if available, otherwise use numbered placeholder
-//     const thumbnail = project.images && project.images.length > 0 
-//       ? `<img src="${project.images[0]}" alt="${project.title}" class="project-image">`
-//       : `<span>0${index + 1}</span>`;
-    
-//     return `
-//     <div class="project-card">
-//       <div class="project-thumb">
-//         ${thumbnail}
-//       </div>
-//       <h3>${project.title}</h3>
-//       <p>${project.description || ''}</p>
-//       <div class="project-tags">
-//         ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
-//       </div>
-//       <div class="project-links">
-//         ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="project-link">🔗 Demo Live</a>` : ''}
-//         ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>` : ''}
-//       </div>
-//     </div>
-//   `}).join('');
-// }
-
-function renderProjects(projects) {
-  const container = document.getElementById('projects-container');
-  if (!container) return;
-
-  container.innerHTML = projects.map((project, index) => {
-    const images = project.images && project.images.length > 0 ? project.images : null;
-
-    let thumbnail;
-    if (images) {
-      thumbnail = `
-        <div class="project-slideshow">
-          ${images.map((img, i) => `<img src="${img}" alt="${project.title}" class="project-image slide${i === 0 ? ' active' : ''}">`).join('')}
-          ${images.length > 1 ? `
-            <div class="slideshow-dots">
-              ${images.map((_, i) => `<span class="dot${i === 0 ? ' active' : ''}"></span>`).join('')}
-            </div>
-          ` : ''}
-        </div>
-      `;
-    } else {
-      thumbnail = `<span>0${index + 1}</span>`;
-    }
-
-    return `
-    <div class="project-card">
-      <div class="project-thumb">
-        ${thumbnail}
-      </div>
-      <h3>${project.title}</h3>
-      <p>${project.description || ''}</p>
-      <div class="project-tags">
-        ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
-      </div>
-      <div class="project-links">
-        ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="project-link">🔗 Demo Live</a>` : ''}
-        ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>` : ''}
-      </div>
-    </div>
-  `}).join('');
-
-  initProjectSlideshows();
+function renderProjects(){
+  const root=document.querySelector('#projects-container');
+  root.innerHTML=DATA.projects.map((p,i)=>{
+    const images=p.images||[];const cover=images[0];
+    const visual=cover?`<button class="project-visual" type="button" data-project-id="${p.id}" aria-label="${escapeHTML(t('projects.gallery'))}: ${escapeHTML(p.title)}"><img class="project-image" src="${escapeHTML(cover)}" alt="${escapeHTML(currentLanguage==='fr'?'Capture du projet':'Project screenshot')} — ${escapeHTML(p.title)}" loading="lazy" width="1600" height="900"><span class="project-view">${escapeHTML(t('projects.gallery'))}<span aria-hidden="true">↗</span></span></button>`:`<div class="project-placeholder" aria-label="${escapeHTML(t('projects.noImage'))}"><strong>0${i+1}</strong></div>`;
+    return `<article class="project-card reveal ${p.featured?'featured':''}" style="--reveal-delay:${Math.min(i*70,350)}ms"><div>${visual}</div><div class="project-body"><p class="project-kicker">${escapeHTML(p.kicker?.[currentLanguage]||'PROJECT')}</p><h3 class="project-title">${escapeHTML(p.title)}</h3><p class="project-description">${escapeHTML(p.description?.[currentLanguage]||'')}</p><div class="project-tags">${(p.stack||[]).map(s=>`<span>${escapeHTML(s)}</span>`).join('')}</div><div class="project-links">${p.demo?`<a href="${escapeHTML(p.demo)}" target="_blank" rel="noopener">${escapeHTML(t('projects.live'))}</a>`:''}${p.github?`<a href="${escapeHTML(p.github)}" target="_blank" rel="noopener">${escapeHTML(t('projects.source'))}</a>`:''}${images.length?`<button class="text-link" type="button" data-project-id="${p.id}">${escapeHTML(t('projects.gallery'))} ↗</button>`:''}</div></div></article>`;
+  }).join('');
+  root.querySelectorAll('[data-project-id]').forEach(button=>button.addEventListener('click',()=>openGallery(Number(button.dataset.projectId))));
+  observeReveals();
 }
 
-// Fait défiler automatiquement les photos de chaque projet
-function initProjectSlideshows() {
-  document.querySelectorAll('.project-slideshow').forEach(slideshow => {
-    const slides = slideshow.querySelectorAll('.slide');
-    const dots = slideshow.querySelectorAll('.dot');
-    if (slides.length <= 1) return; // rien à faire s'il n'y a qu'une photo (ou zéro)
+function renderExperiences(){
+  const root=document.querySelector('#experiences-container');
+  root.innerHTML=DATA.experiences.map(e=>`<article class="experience-item"><div class="experience-date">${escapeHTML(e.date)}</div><div><h3 class="experience-role">${escapeHTML(e.role?.[currentLanguage]||'')}</h3><p class="experience-company">${escapeHTML(e.company)}</p><p class="experience-description">${escapeHTML(e.description?.[currentLanguage]||'')}</p>${e.stack?.length?`<div class="project-tags">${e.stack.map(s=>`<span>${escapeHTML(s)}</span>`).join('')}</div>`:''}</div><div class="experience-location">${escapeHTML(e.location)}</div></article>`).join('');
+}
 
-    let current = 0;
-    let interval = setInterval(nextSlide, 3000);
+function openGallery(id){
+  const project=DATA.projects.find(p=>p.id===id);if(!project||!project.images?.length)return;
+  galleryProject=project;galleryIndex=0;lastFocusedElement=document.activeElement;
+  const modal=document.querySelector('#gallery-modal');modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
+  updateGallery();modal.querySelector('.modal-close').focus();
+}
+function updateGallery(){
+  const images=galleryProject.images||[];const image=images[galleryIndex];
+  document.querySelector('#gallery-image').src=image;document.querySelector('#gallery-image').alt=`${currentLanguage==='fr'?'Capture du projet':'Project screenshot'} — ${galleryProject.title}`;
+  document.querySelector('#gallery-title').textContent=galleryProject.title;document.querySelector('#gallery-kicker').textContent=galleryProject.kicker?.[currentLanguage]||'PROJECT';document.querySelector('#gallery-counter').textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(images.length).padStart(2,'0')}`;
+  document.querySelector('[data-gallery-prev]').disabled=images.length<2;document.querySelector('[data-gallery-next]').disabled=images.length<2;
+  document.querySelector('#gallery-thumbs').innerHTML=images.map((src,i)=>`<button class="gallery-thumb ${i===galleryIndex?'is-active':''}" type="button" data-gallery-index="${i}" aria-label="${i+1} / ${images.length}"><img src="${escapeHTML(src)}" alt="" loading="lazy"></button>`).join('');
+  document.querySelectorAll('[data-gallery-index]').forEach(btn=>btn.addEventListener('click',()=>{galleryIndex=Number(btn.dataset.galleryIndex);updateGallery();}));
+}
+function stepGallery(direction){if(!galleryProject)return;const total=galleryProject.images.length;galleryIndex=(galleryIndex+direction+total)%total;updateGallery();}
+function closeGallery(){const modal=document.querySelector('#gallery-modal');modal.hidden=true;modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();galleryProject=null;}
 
-    function goToSlide(i) {
-      slides[current].classList.remove('active');
-      if (dots[current]) dots[current].classList.remove('active');
-      current = i;
-      slides[current].classList.add('active');
-      if (dots[current]) dots[current].classList.add('active');
-    }
+function openContact(){const modal=document.querySelector('#contact-modal');lastFocusedElement=document.activeElement;modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');modal.querySelector('.modal-close').focus();}
+function closeContact(){const modal=document.querySelector('#contact-modal');modal.hidden=true;modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();}
+function trapFocus(event,modal){if(event.key!=='Tab')return;const focusables=[...modal.querySelectorAll('button,a[href]')].filter(el=>!el.disabled);if(!focusables.length)return;const first=focusables[0],last=focusables[focusables.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
 
-    function nextSlide() {
-      goToSlide((current + 1) % slides.length);
-    }
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        clearInterval(interval);
-        goToSlide(i);
-        interval = setInterval(nextSlide, 3000);
-      });
-    });
-
-    // pause au survol, pratique pour regarder une photo tranquillement
-    slideshow.addEventListener('mouseenter', () => clearInterval(interval));
-    slideshow.addEventListener('mouseleave', () => {
-      interval = setInterval(nextSlide, 3000);
-    });
+function setupHeader(){const header=document.querySelector('.site-header');window.addEventListener('scroll',()=>header.classList.toggle('is-scrolled',window.scrollY>30),{passive:true});}
+function observeReveals(){const elements=document.querySelectorAll('.reveal:not(.is-visible)');if(!('IntersectionObserver' in window)){elements.forEach(el=>el.classList.add('is-visible'));return;}const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});elements.forEach(el=>observer.observe(el));}
+function setupEvents(){
+  document.querySelectorAll('.language-button').forEach(btn=>btn.addEventListener('click',()=>applyTranslations(btn.dataset.lang)));
+  document.querySelectorAll('[data-open-contact]').forEach(btn=>btn.addEventListener('click',openContact));
+  document.querySelectorAll('[data-close-modal]').forEach(btn=>btn.addEventListener('click',closeContact));
+  document.querySelectorAll('[data-close-gallery]').forEach(btn=>btn.addEventListener('click',closeGallery));
+  document.querySelector('[data-gallery-prev]').addEventListener('click',()=>stepGallery(-1));
+  document.querySelector('[data-gallery-next]').addEventListener('click',()=>stepGallery(1));
+  document.addEventListener('keydown',event=>{
+    const contact=document.querySelector('#contact-modal');const gallery=document.querySelector('#gallery-modal');
+    if(!contact.hidden){if(event.key==='Escape')closeContact();else trapFocus(event,contact);}
+    if(!gallery.hidden){if(event.key==='Escape')closeGallery();else if(event.key==='ArrowLeft')stepGallery(-1);else if(event.key==='ArrowRight')stepGallery(1);else trapFocus(event,gallery);}
   });
 }
 
-function renderExperiences(experiences) {
-  const container = document.getElementById('experiences-container');
-  if (!container) return;
-
-  container.innerHTML = experiences.map(exp => `
-    <div class="timeline-item">
-      <div class="timeline-date">${exp.date}</div>
-      <div class="timeline-content">
-        <h3>${exp.title} — ${exp.company}</h3>
-        <p>${exp.description}</p>
-        <span class="stack">${exp.stack.join(' - ')}</span>
-      </div>
-    </div>
-  `).join('');
-}
-
-function renderEducation(education) {
-  const container = document.getElementById('experiences-container');
-  if (!container) return;
-
-  const educationHTML = education.map(edu => `
-    <div class="timeline-item">
-      <div class="timeline-date">${edu.date}</div>
-      <div class="timeline-content">
-        <h3>${edu.title} — ${edu.institution}</h3>
-        <p>${edu.description || ''}</p>
-      </div>
-    </div>
-  `).join('');
-
-  container.innerHTML += educationHTML;
-}
-
-function renderSkills(skills) {
-  const container = document.getElementById('skills-container');
-  if (!container) return;
-
-  container.innerHTML = Object.values(skills).map(category => `
-    <div class="skill-card">
-      <h3>${category.title}</h3>
-      <div class="skill-card-content">
-        ${category.skills.map(skill => `
-          <span class="skill-item">${skill.name}</span>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
-
-// Fallback functions if JSON loading fails
-function renderProjectsFallback() {
-  const container = document.getElementById('projects-container');
-  if (!container) return;
-  
-  container.innerHTML = `
-    <div class="project-card">
-      <div class="project-thumb"><span>01</span></div>
-      <h3>Calculateur IRSA Madagascar</h3>
-      <p>Application web permettant de calculer l'Impôt sur les Revenus Salariaux et Assimilés selon le barème fiscal malgache 2026.</p>
-      <div class="project-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span></div>
-      <div class="project-links">
-        <a href="http://calcul-irsa-v1.vercel.app/" target="_blank" rel="noopener" class="project-link">🔗 Demo Live</a>
-        <a href="https://github.com/roniratsimba/calcul-irsa-v1" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-thumb"><span>02</span></div>
-      <h3>Application Web Mobile Money</h3>
-      <p>Simulation complète de transactions financières (envois, retraits, calcul de frais), génération de relevés PDF et notifications automatisées (inspirée de MVola).</p>
-      <div class="project-tags"><span>Java 17</span><span>JSP/Servlets</span><span>PostgreSQL</span><span>Tailwind CSS</span><span>Maven</span></div>
-      <div class="project-links">
-        <a href="https://github.com/roniratsimba/mobile-money" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-thumb"><span>03</span></div>
-      <h3>Campus Scheduler</h3>
-      <p>Système fullstack de gestion et d'optimisation des emplois du temps universitaires : planification des salles, enseignants et groupes, détection de conflits, recherche de salles libres, consultation publique et interface d'administration sécurisée.</p>
-      <div class="project-tags"><span>React</span><span>TypeScript</span><span>Symfony</span><span>Doctrine ORM</span><span>JWT</span><span>PostgreSQL</span></div>
-      <div class="project-links">
-        <a href="https://github.com/roniratsimba/campus-scheduler" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-thumb">
-        <img src="images/projects/restau/GestResto1.png" alt="Gestion Restaurant" class="project-image">
-      </div>
-      <h3>Gestion Restaurant</h3>
-      <div class="project-tags"><span>PHP</span><span>XAMPP</span><span>MySQL</span><span>JavaScript</span></div>
-      <div class="project-links">
-        <a href="https://github.com/roniratsimba/restau-management" target="_blank" rel="noopener" class="project-link">📂 GitHub</a>
-      </div>
-    </div>
-  `;
-}
-
-function renderExperiencesFallback() {
-  const container = document.getElementById('experiences-container');
-  if (!container) return;
-  
-  container.innerHTML = `
-    <div class="timeline-item">
-      <div class="timeline-date">Sept 2025 - Déc 2025</div>
-      <div class="timeline-content">
-        <h3>Stagiaire Développeur Web — Direction Générale des Impôts</h3>
-        <p>Mise en place d'un système web de gestion et suivi des stagiaires (rôles, attestations, notifications, archivage).</p>
-        <span class="stack">Symfony - PostgreSQL - Doctrine ORM - Twig - JS</span>
-      </div>
-    </div>
-  `;
-}
-
-function renderEducationFallback() {
-  const container = document.getElementById('experiences-container');
-  if (!container) return;
-  
-  const educationHTML = `
-    <div class="timeline-item">
-      <div class="timeline-date">2024 - Présent</div>
-      <div class="timeline-content">
-        <h3>Licence 3 en Génie Logiciel — ENI Fianarantsoa</h3>
-        <p>Spécialisation en Génie Logiciel et Base de données.</p>
-      </div>
-    </div>
-  `;
-  
-  container.innerHTML += educationHTML;
-}
-
-function renderSkillsFallback() {
-  const container = document.getElementById('skills-container');
-  if (!container) return;
-  
-  container.innerHTML = `
-    <div class="skill-card">
-      <h3>Backend</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">PHP</span>
-        <span class="skill-item">Symfony</span>
-        <span class="skill-item">Doctrine</span>
-        <span class="skill-item">Java 17</span>
-        <span class="skill-item">Node.js</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Frontend</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">React</span>
-        <span class="skill-item">TypeScript</span>
-        <span class="skill-item">JavaScript</span>
-        <span class="skill-item">Tailwind CSS</span>
-        <span class="skill-item">Twig</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Mobile</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">Flutter</span>
-        <span class="skill-item">Android Studio</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Bases de données</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">PostgreSQL</span>
-        <span class="skill-item">MySQL</span>
-        <span class="skill-item">Modélisation relationnelle</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Conception & Architecture</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">UML</span>
-        <span class="skill-item">Merise</span>
-        <span class="skill-item">Architecture MVC</span>
-        <span class="skill-item">POO</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Outils & Workflow</h3>
-      <div class="skill-card-content">
-        <span class="skill-item">Git</span>
-        <span class="skill-item">GitHub</span>
-        <span class="skill-item">API REST</span>
-        <span class="skill-item">Composer</span>
-        <span class="skill-item">NPM</span>
-        <span class="skill-item">Maven</span>
-      </div>
-    </div>
-  `;
-}
+setupEvents();setupHeader();applyTranslations(currentLanguage);observeReveals();loadData().then(()=>renderProjects());
