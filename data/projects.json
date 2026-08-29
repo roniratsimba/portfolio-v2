@@ -11,6 +11,15 @@
     },
     {
       "id": 2,
+      "title": "Commit Generator",
+      "description": "Un outil en ligne de commande qui analyse les changements Git et génère des messages de commit conventionnels (feat, fix, docs, etc.). Il fonctionne avec ou sans IA, et supporte plusieurs fournisseurs gratuits : Groq, Gemini, LocalAI.",
+      "stack": ["Python", "APIs", "CLI"],
+      "demo": "https://roniratsimba.github.io/commit-generator-site/",
+      "github": "https://github.com/roniratsimba/commit-generator",
+      "images": ["images/projects/commit-gen/1.png", "images/projects/commit-gen/2.png", "images/projects/commit-gen/3.png"]
+    },
+    {
+      "id": 3,
       "title": "Application Web Mobile Money",
       "description": "Simulation complète de transactions financières (envois, retraits, calcul de frais), génération de relevés PDF et notifications automatisées (inspirée de MVola).",
       "stack": ["Java 17", "JSP/Servlets", "PostgreSQL", "Tailwind CSS", "Maven"],
@@ -19,7 +28,7 @@
       "images": []
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Campus Scheduler",
       "description": "Système fullstack de gestion et d'optimisation des emplois du temps universitaires : planification des salles, enseignants et groupes, détection de conflits, recherche de salles libres, consultation publique et interface d'administration sécurisée.",
       "stack": ["React", "TypeScript", "Symfony", "Doctrine ORM", "JWT", "PostgreSQL"],
@@ -28,7 +37,7 @@
       "images": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Gestion Restaurant",
       "description": "",
       "stack": ["PHP", "XAMPP", "MySQL", "JavaScript"],
@@ -37,7 +46,7 @@
       "images": ["images/projects/restau/GestResto1.png", "images/projects/restau/GestResto2.png", "images/projects/restau/GestResto3.png", "images/projects/restau/GestResto4.png", "images/projects/restau/GestResto5.png"]
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Portfolio Personnel",
       "description": "Portfolio interactif sous forme de faux OS cyberpunk : un terminal où l'on explore mes projets, compétences et parcours comme dans un mini-RPG.",
       "stack": ["React", "TypeScript"],
