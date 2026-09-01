@@ -97,6 +97,7 @@ function closeContact(){const modal=document.querySelector('#contact-modal');mod
 function trapFocus(event,modal){if(event.key!=='Tab')return;const focusables=[...modal.querySelectorAll('button,a[href]')].filter(el=>!el.disabled);if(!focusables.length)return;const first=focusables[0],last=focusables[focusables.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
 
 function setupHeader(){const header=document.querySelector('.site-header');window.addEventListener('scroll',()=>header.classList.toggle('is-scrolled',window.scrollY>30),{passive:true});}
+function setupCustomCursor(){const cursor=document.querySelector('#custom-cursor');if(!cursor)return;let mouseX=0,mouseY=0,cursorX=0,cursorY=0;const targets=document.querySelectorAll('[data-cursor-target]');const updateCursor=()=>{const dx=mouseX-cursorX;const dy=mouseY-cursorY;cursorX+=dx*0.15;cursorY+=dy*0.15;cursor.style.transform=`translate(${cursorX}px,${cursorY}px) translate(-50%,-50%)`;requestAnimationFrame(updateCursor);};document.addEventListener('mousemove',(e)=>{mouseX=e.clientX;mouseY=e.clientY;if(!cursor.classList.contains('is-visible')){cursor.classList.add('is-visible');}});updateCursor();targets.forEach(target=>{target.addEventListener('mouseenter',()=>{cursor.classList.add('is-hovering');});target.addEventListener('mouseleave',()=>{cursor.classList.remove('is-hovering');});});}
 function observeReveals(){const elements=document.querySelectorAll('.reveal:not(.is-visible)');if(!('IntersectionObserver' in window)){elements.forEach(el=>el.classList.add('is-visible'));return;}const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});elements.forEach(el=>observer.observe(el));}
 function setupEvents(){
   document.querySelectorAll('.language-button').forEach(btn=>btn.addEventListener('click',()=>applyTranslations(btn.dataset.lang)));
@@ -112,4 +113,4 @@ function setupEvents(){
   });
 }
 
-setupEvents();setupHeader();applyTranslations(currentLanguage);observeReveals();loadData().then(()=>renderProjects());
+setupEvents();setupHeader();setupCustomCursor();applyTranslations(currentLanguage);observeReveals();loadData().then(()=>renderProjects());
