@@ -101,8 +101,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ lang, onComplete }) => {
                 <span className="font-mono text-xs sm:text-sm tracking-widest text-primary/80 uppercase">
                   {index === 0
                     ? lang === "fr"
-                      ? "Ingénieur Logiciel"
-                      : "Software Engineer"
+                      ? "Développeur Logiciel/Web"
+                      : "Software Developer/Web"
                     : "Symfony · React · TypeScript"}
                 </span>
               </motion.div>

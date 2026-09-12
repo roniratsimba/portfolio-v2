@@ -2,7 +2,7 @@
 @config "../tailwind.config.js";
 
 :root {
-  --background: 0 0% 10%;
+  --background: 0 0% 3%;
   --foreground: 0 0% 96%;
   --primary: 119 99% 44%;
   --primary-foreground: 0 0% 4%;
