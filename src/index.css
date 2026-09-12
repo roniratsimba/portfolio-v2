@@ -2,14 +2,14 @@
 @config "../tailwind.config.js";
 
 :root {
-  --background: 0 0% 3%;
+  --background: 0 0% 2%;
   --foreground: 0 0% 96%;
   --primary: 119 99% 44%;
   --primary-foreground: 0 0% 4%;
   --secondary: 0 0% 18%;
   --secondary-foreground: 0 0% 96%;
   --muted: 0 0% 16%;
-  --muted-foreground: 0 0% 60%;
+  --muted-foreground: 0 0% 65%;
   --accent: 119 99% 46%;
   --accent-foreground: 0 0% 4%;
   --destructive: 0 84% 60%;
@@ -18,7 +18,7 @@
   --ring: 119 99% 46%;
   --radius: 0.5rem;
   --nav-button: 0 0% 18%;
-  --hero-bg: 0 0% 8%;
+  --hero-bg: 0 0% 5%;
 }
 
 @theme {
