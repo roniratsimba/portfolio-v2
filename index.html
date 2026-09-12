@@ -1,148 +1,21 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="R. — Développeur Full-Stack. Applications web, APIs et outils numériques avec Symfony, React et TypeScript.">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta property="og:title" content="R. — Full-Stack Developer">
-  <meta property="og:description" content="Applications web, APIs et outils numériques construits avec Symfony, React et TypeScript.">
-  <meta property="og:type" content="website">
-  <title>R. — Full-Stack Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="custom-cursor" id="custom-cursor">
-    <div class="cursor-content">
-      <div class="cursor-icon"></div>
-    </div>
-  </div>
-  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
-
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="R. — accueil">R.</a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="#work" data-i18n="nav.work">Projets</a>
-      <a href="#experience" data-i18n="nav.experience">Expérience</a>
-      <a href="#about" data-i18n="nav.about">À propos</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
-    </nav>
-    <div class="language-switcher" aria-label="Sélection de langue">
-      <span class="language-label" data-i18n="language.label">Language</span>
-      <button type="button" class="language-button" data-lang="fr" aria-label="Français" aria-pressed="true">FR</button>
-      <span aria-hidden="true">/</span>
-      <button type="button" class="language-button" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow">DÉVELOPPEUR FULL-STACK</p>
-        <h1 id="hero-title"><span data-i18n="hero.title">Je construis des produits web</span><br><em data-i18n="hero.titleEm">qui ont une raison d'exister.</em></h1>
-        <p class="hero-description" data-i18n="hero.description">Je conçois et développe des applications web, des APIs et des outils numériques avec Symfony, React et TypeScript.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#work"><span data-i18n="hero.work">Voir les projets</span><span aria-hidden="true">↗</span></a>
-          <a class="button button-ghost" href="CV_Roni_Ratsimbazafy.pdf" download data-i18n="hero.cv">Télécharger le CV</a>
-        </div>
-        <div class="hero-meta">
-          <span data-i18n="hero.based">Basé à Madagascar</span>
-          <span data-i18n="hero.remote">Ouvert aux opportunités à distance</span>
-        </div>
-      </div>
-      <div class="hero-aside">
-        <div class="portrait-wrap"><img src="images/me/moi.jpeg" alt="Roni Ratsimbazafy" class="portrait" width="420" height="520"></div>
-        <div class="hero-aside-note"><span class="mono">01</span><p data-i18n="hero.note">Ingénierie logicielle<br>avec une approche produit.</p></div>
-      </div>
-    </section>
-
-    <section class="trust-strip" aria-label="Stack principale">
-      <span data-i18n="stack.label">Stack principale</span>
-      <div class="stack-line"><span>Symfony</span><i>·</i><span>React</span><i>·</i><span>TypeScript</span><i>·</i><span>PostgreSQL</span><i>·</i><span>Git</span></div>
-    </section>
-
-    <section class="section work-section" id="work" aria-labelledby="work-title">
-      <div class="section-heading reveal">
-        <div><p class="eyebrow" data-i18n="work.eyebrow">PROJETS SÉLECTIONNÉS</p><h2 id="work-title" data-i18n="work.title">Des projets construits pour résoudre quelque chose.</h2></div>
-        <p data-i18n="work.description">Chaque projet montre une manière de réfléchir, de construire et de transformer une idée en produit utilisable.</p>
-      </div>
-      <div class="projects-list" id="projects-container" aria-live="polite"></div>
-    </section>
-
-    <div class="light-zone">
-      <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
-        <div class="section-heading compact reveal">
-          <div><p class="eyebrow" data-i18n="engineering.eyebrow">INGÉNIERIE</p><h2 id="capabilities-title" data-i18n="engineering.title">Ma façon de construire.</h2></div>
-          <p data-i18n="engineering.description">Je privilégie une architecture claire, un code maintenable et des interfaces qui restent au service du produit.</p>
-        </div>
-        <div class="capability-grid">
-          <article class="reveal"><span class="number">01</span><h3 data-i18n="cap.backend.title">Backend & APIs</h3><p data-i18n="cap.backend.text">Architecture applicative, APIs REST, authentification, autorisation, données relationnelles et logique métier.</p><div class="tags"><span>PHP</span><span>Symfony</span><span>Doctrine</span><span>Node.js</span></div></article>
-          <article class="reveal"><span class="number">02</span><h3 data-i18n="cap.frontend.title">Frontend</h3><p data-i18n="cap.frontend.text">Interfaces responsive pensées autour d'interactions utiles, d'un état lisible et de composants prévisibles.</p><div class="tags"><span>React</span><span>TypeScript</span><span>JavaScript</span><span>Tailwind</span></div></article>
-          <article class="reveal"><span class="number">03</span><h3 data-i18n="cap.data.title">Données & architecture</h3><p data-i18n="cap.data.text">Modélisation relationnelle et structure applicative conçues pour garder la complexité compréhensible à mesure que le projet grandit.</p><div class="tags"><span>PostgreSQL</span><span>MySQL</span><span>UML</span><span>POO</span></div></article>
-          <article class="reveal"><span class="number">04</span><h3 data-i18n="cap.workflow.title">Outils & workflow</h3><p data-i18n="cap.workflow.text">Gestion de versions, gestionnaires de paquets et workflow orienté terminal pour un développement reproductible.</p><div class="tags"><span>Git</span><span>GitHub</span><span>Composer</span><span>NPM</span><span>Maven</span></div></article>
-        </div>
-      </section>
-
-      <section class="section experience-section" id="experience" aria-labelledby="experience-title">
-        <div class="section-heading compact reveal">
-          <div><p class="eyebrow" data-i18n="experience.eyebrow">EXPÉRIENCE</p><h2 id="experience-title" data-i18n="experience.title">Le travail derrière les projets.</h2></div>
-        </div>
-        <div class="experience-list" id="experiences-container" aria-live="polite"></div>
-      </section>
-
-      <section class="section about-section" id="about" aria-labelledby="about-title">
-        <div class="about-grid">
-          <div class="reveal"><p class="eyebrow" data-i18n="about.eyebrow">À PROPOS</p><h2 id="about-title"><span data-i18n="about.title1">Toujours en apprentissage.</span><br><span data-i18n="about.title2">Déjà dans la construction.</span></h2></div>
-          <div class="about-copy reveal">
-            <p class="lead" data-i18n="about.lead">Je suis Roni, étudiant en génie logiciel et développeur full-stack basé à Madagascar.</p>
-            <p data-i18n="about.p1">Je travaille principalement avec Symfony, React, TypeScript et PostgreSQL. J'aime partir d'un problème, modéliser les données et la logique métier, construire le backend puis aboutir à une interface réellement utilisable et maintenable.</p>
-            <p data-i18n="about.p2">Ma direction actuelle est l'ingénierie logicielle approfondie : architecture, Linux et outils de développement, déploiement, tests et automatisation pratique.</p>
-            <div class="about-details"><div><span data-i18n="about.location">Localisation</span><strong>Madagascar</strong></div><div><span data-i18n="about.focus">Orientation</span><strong data-i18n="about.focusValue">Full-stack / Backend</strong></div><div><span data-i18n="about.education">Formation</span><strong data-i18n="about.educationValue">Génie logiciel</strong></div></div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-card reveal">
-        <p class="eyebrow" data-i18n="contact.eyebrow">CONTACT</p>
-        <h2 id="contact-title" data-i18n="contact.title">Une opportunité ? Discutons-en.</h2>
-        <p data-i18n="contact.description">Un projet, une opportunité professionnelle ou simplement envie d'échanger ? Écrivez-moi.</p>
-        <div class="contact-actions"><button class="button button-primary" type="button" data-open-contact><span data-i18n="contact.cta">Ouvrir le contact</span><span aria-hidden="true">↗</span></button></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div><a class="brand" href="#top">R.</a></div>
-    <div class="footer-links"><a href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub</a><a href="mailto:roniratsimba@gmail.com">Email</a><button type="button" data-open-contact data-i18n="footer.contact">Contact</button><a href="#top" data-i18n="footer.top">Retour en haut ↑</a></div>
-    <p class="copyright">© 2026 R. / Roni Ratsimbazafy</p>
-  </footer>
-
-  <div class="modal" id="contact-modal" hidden aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-      <button class="modal-close" type="button" data-close-modal data-i18n-aria="modal.close" aria-label="Fermer">×</button>
-      <p class="eyebrow" data-i18n="modal.eyebrow">ÉCHANGEONS</p>
-      <h2 id="contact-modal-title" data-i18n="modal.title">Une opportunité ? Discutons-en.</h2>
-      <p data-i18n="modal.description">Un projet, une opportunité professionnelle ou simplement envie d'échanger ? Écrivez-moi.</p>
-      <div class="modal-actions"><a class="button button-primary" href="mailto:roniratsimba@gmail.com" data-i18n="modal.email">Écrire un email</a><a class="button button-ghost" href="https://github.com/roniratsimba" target="_blank" rel="noopener">GitHub ↗</a></div>
-      <div class="modal-meta"><span>roniratsimba@gmail.com</span><span>Madagascar · Remote</span></div>
-    </section>
-  </div>
-
-  <div class="gallery-modal" id="gallery-modal" hidden aria-hidden="true">
-    <div class="modal-backdrop" data-close-gallery></div>
-    <section class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
-      <div class="gallery-header"><div><p class="eyebrow" id="gallery-kicker">PROJECT</p><h2 id="gallery-title">Project</h2></div><button class="modal-close" type="button" data-close-gallery data-i18n-aria="modal.close" aria-label="Fermer">×</button></div>
-      <div class="gallery-stage"><button class="gallery-arrow gallery-prev" type="button" data-gallery-prev data-i18n-aria="gallery.previous" aria-label="Image précédente">←</button><img id="gallery-image" src="" alt="" width="1600" height="900"><button class="gallery-arrow gallery-next" type="button" data-gallery-next data-i18n-aria="gallery.next" aria-label="Image suivante">→</button></div>
-      <div class="gallery-footer"><span id="gallery-counter">01 / 01</span><div id="gallery-thumbs" class="gallery-thumbs"></div></div>
-    </section>
-  </div>
-
-  <script src="js/main.js" defer></script>
-</body>
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roni Ratsimba — Portfolio</title>
+    <meta name="description" content="Portfolio de Roni Ratsimba — Développeur Full-Stack & Ingénieur Produit." />
+    <meta property="og:title" content="Roni Ratsimba — Portfolio" />
+    <meta property="og:description" content="Portfolio de Roni Ratsimba — Développeur Full-Stack & Ingénieur Produit." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-sora antialiased bg-[#141414] text-[#f5f5f5]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
