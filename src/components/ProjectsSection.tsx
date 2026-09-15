@@ -49,23 +49,32 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lang }) => {
             <StaggerItem key={project.id} className="h-full">
               <article className="group relative flex flex-col justify-between h-full p-6 rounded-xl bg-background/50 hover:bg-background/80 border border-white/[0.08] hover:border-primary/50 transition-all duration-300 shadow-xl hover:-translate-y-1">
                 <div>
-                  {/* Kicker & Featured Badge */}
+                  
+                  {/* Kicker & Badges */}
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="text-[11px] font-mono tracking-widest uppercase text-primary/90 font-medium">
                       {project.kicker[lang]}
                     </span>
-                    {project.featured && (
-                      <span className="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-primary/20 text-primary border border-primary/30">
-                        Featured
-                      </span>
-                    )}
+
+                    <div className="flex items-center gap-1.5">
+                      {project.status === "in-progress" && (
+                        <span className="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                          {lang === "fr" ? "En cours" : "In progress"}
+                        </span>
+                      )}
+
+                      {project.featured && (
+                        <span className="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-primary/20 text-primary border border-primary/30">
+                          Featured
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Project Title */}
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-
                   {/* Project Description */}
                   <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
                     {project.description[lang]}

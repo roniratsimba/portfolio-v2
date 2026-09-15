@@ -16,6 +16,7 @@ export interface Project {
   demo?: string;
   featured?: boolean;
   images: string[];
+  status?: "in-progress" | "completed" | "wip"; // ou d'autres statuts que tu souhaites définir
 }
 
 export interface Experience {
@@ -135,23 +136,31 @@ export const PROJECTS_DATA: Project[] = [
     ],
   },
   {
-    id: 6,
-    title: "Portfolio Terminal",
+    id: 6, 
+    title: "Mini-Jira",
     kicker: {
-      fr: "EXPÉRIMENTAL",
-      en: "EXPERIMENTAL",
+      fr: "SYSTÈME FULL-STACK",
+      en: "FULL-STACK SYSTEM",
     },
     description: {
-      fr: "Expérimentation de portfolio personnel sous la forme d’un environnement interactif inspiré d’un terminal et d’un bureau. Le projet explore volontairement l’interface, la navigation et les interactions comme alternative à un portfolio classique.",
-      en: "An experimental personal portfolio presented as an interactive terminal-and-desktop environment. The project deliberately explores interface, navigation and interaction as an alternative to a conventional portfolio.",
+      fr: "Gestionnaire de tâches collaboratif Agile inspiré de Jira et Linear. Tableaux Kanban avec drag & drop, chronométrage en temps réel, multi-projets avec RBAC, tableaux de bord analytiques et notifications. Architecture React + Symfony 7 complètement séparée.",
+      en: "Agile collaborative task manager inspired by Jira and Linear. Interactive Kanban boards with drag & drop, real-time time tracking, multi-project RBAC, analytical dashboards and notifications. Fully separated React + Symfony 7 architecture.",
     },
-    stack: ["React", "TypeScript"],
-    demo: "https://roni-terminal.vercel.app/",
-    github: "https://github.com/roniratsimba/portfolio-fun",
-    images: [
-      "/images/projects/fun-portfolio/terminal.webp",
-      "/images/projects/fun-portfolio/terminal.png",
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Symfony 7",
+      "Doctrine",
+      "JWT",
+      "PostgreSQL",
     ],
+    github: "https://github.com/roniratsimba/mini-jira",
+    // demo: "..." 
+    featured: true, 
+    status: "in-progress",   // ou "wip"
+    images: [],
   },
 ];
 
