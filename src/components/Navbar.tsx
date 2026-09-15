@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="group flex items-center gap-2 text-foreground text-xl font-bold tracking-tight select-none"
         >
           <span className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center font-bold text-primary group-hover:border-primary/50 transition-colors">
-            R.
+            Rr.
           </span>
         </a>
 

@@ -312,7 +312,7 @@ export const TRANSLATIONS = {
       eyebrow: "CONTACT",
       title: "Une opportunité ? Discutons-en.",
       description:
-        "Un projet, un poste à distance ou simplement envie d’échanger autour du dev ? Je réponds rapidement par email, téléphone ou WhatsApp.",
+        "",
       email: "roniratsimba@gmail.com",
       copyEmail: "Copier l'email",
       copied: "Email copié !",
@@ -348,7 +348,7 @@ export const TRANSLATIONS = {
       titleAccent: " THAT HAVE A REASON TO EXIST.",
       subheading: "Software engineering with a product-first approach.",
       description:
-        "I design and build reliable web applications, robust APIs, and digital tools with Symfony, React, TypeScript, and PostgreSQL. Based in Madagascar, open to global remote opportunities.",
+        "",
       ctaWork: "View Projects",
       ctaCv: "Download CV",
       ctaContact: "Get in Touch",

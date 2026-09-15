@@ -7,7 +7,7 @@
   --primary: 119 99% 44%;
   --primary-foreground: 0 0% 4%;
   --secondary: 0 0% 18%;
-  --secondary-foreground: 0 0% 96%;
+  --secondary-foreground: 11 0% 96%;
   --muted: 0 0% 16%;
   --muted-foreground: 0 0% 65%;
   --accent: 119 99% 46%;
@@ -19,6 +19,7 @@
   --radius: 0.5rem;
   --nav-button: 0 0% 18%;
   --hero-bg: 0 0% 5%;
+
 }
 
 @theme {
@@ -70,6 +71,50 @@
 .animate-fade-in {
   animation: fade-in 0.5s ease-out forwards;
 }
+
+.highlight-text {
+  padding: 0.1em 0;
+}
+
+@keyframes loaderAnim {
+  0% {
+    inset: 0 50% 50% 0;
+  }
+  12.5% {
+    inset: 0 50% 0 0;
+  }
+  25% {
+    inset: 50% 50% 0 0;
+  }
+  37.5% {
+    inset: 50% 0 0 0;
+  }
+  50% {
+    inset: 50% 0 0 50%;
+  }
+  62.5% {
+    inset: 0 0 0 50%;
+  }
+  75% {
+    inset: 0 0 50% 50%;
+  }
+  87.5% {
+    inset: 0 0 50% 0;
+  }
+  100% {
+    inset: 0 50% 50% 0;
+  }
+}
+
+.animate-loaderAnim {
+  animation: loaderAnim 2.5s infinite;
+}
+
+.animation-delay {
+  animation-delay: -1.25s;
+}
+
+
 
 html {
   scroll-behavior: smooth;

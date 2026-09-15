@@ -3,6 +3,7 @@ import { Language, TRANSLATIONS } from "@/src/data/portfolioData";
 import { Download, MapPin, GraduationCap, Target, UserCheck } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/src/components/ui/ScrollReveal";
 import { Magnetic } from "@/src/components/core/magnetic";
+import { BlurHighlightAnimatedParagraph } from "@/src/components/ui/BlurHighlightAnimatedParagraph";
 
 interface AboutSectionProps {
   lang: Language;
@@ -75,23 +76,53 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
           {/* Right Column: Bio Copy & Details */}
           <div className="lg:col-span-7 space-y-6 pt-2">
-            <ScrollReveal direction="up" distance={24} delay={0.15}>
-              <p className="text-xl sm:text-2xl font-light text-foreground/90 leading-relaxed">
-                {t.about.lead}
-              </p>
-            </ScrollReveal>
+            <BlurHighlightAnimatedParagraph
+              highlightedBits={["Roni"]}
+              highlightColor="hsl(119, 99%, 44%, 0.3)"
+              highlightDirection="right"
+              highlightDelay={0.4}
+              highlightDuration={1}
+              blurAmount={8}
+              inactiveOpacity={0.3}
+              blurDelay={0}
+              blurDuration={0.8}
+              viewportOptions={{ once: false, amount: 0.5 }}
+              className="text-xl sm:text-2xl font-light text-foreground/90 leading-relaxed"
+            >
+              {t.about.lead}
+            </BlurHighlightAnimatedParagraph>
 
-            <ScrollReveal direction="up" distance={24} delay={0.22}>
-              <p className="text-muted-foreground font-light text-base sm:text-lg leading-relaxed">
-                {t.about.p1}
-              </p>
-            </ScrollReveal>
+            <BlurHighlightAnimatedParagraph
+              highlightedBits={["Symfony", "React", "TypeScript", "PostgreSQL"]}
+              highlightColor="hsl(119, 99%, 44%, 0.3)"
+              highlightDirection="right"
+              highlightDelay={0.4}
+              highlightDuration={1}
+              blurAmount={8}
+              inactiveOpacity={0.3}
+              blurDelay={0}
+              blurDuration={0.8}
+              viewportOptions={{ once: false, amount: 0.5 }}
+              className="text-muted-foreground font-light text-base sm:text-lg leading-relaxed"
+            >
+              {t.about.p1}
+            </BlurHighlightAnimatedParagraph>
 
-            <ScrollReveal direction="up" distance={24} delay={0.28}>
-              <p className="text-muted-foreground font-light text-base sm:text-lg leading-relaxed">
-                {t.about.p2}
-              </p>
-            </ScrollReveal>
+            <BlurHighlightAnimatedParagraph
+              highlightedBits={["ingénierie logicielle approfondie", "software craftsmanship"]}
+              highlightColor="hsl(119, 99%, 44%, 0.3)"
+              highlightDirection="right"
+              highlightDelay={0.4}
+              highlightDuration={1}
+              blurAmount={8}
+              inactiveOpacity={0.3}
+              blurDelay={0}
+              blurDuration={0.8}
+              viewportOptions={{ once: false, amount: 0.5 }}
+              className="text-muted-foreground font-light text-base sm:text-lg leading-relaxed"
+            >
+              {t.about.p2}
+            </BlurHighlightAnimatedParagraph>
 
             {/* Key Facts / Details grid */}
             <StaggerContainer
