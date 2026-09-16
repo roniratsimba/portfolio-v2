@@ -11,7 +11,6 @@ import { Footer } from "@/src/components/Footer";
 import { ContactModal } from "@/src/components/ContactModal";
 import { CustomCursor } from "@/src/components/CustomCursor";
 import { Preloader } from "@/src/components/Preloader";
-import { AssistantBubble } from "@/src/components/AssistantBubble";
 import { Language } from "@/src/data/portfolioData";
 
 export default function Index() {
@@ -71,12 +70,6 @@ export default function Index() {
 
       {/* Footer */}
       <Footer lang={lang} />
-
-      {/* Floating Assistant Bubble at bottom-right */}
-      <AssistantBubble
-        lang={lang}
-        onOpenContact={() => setIsContactModalOpen(true)}
-      />
 
       {/* Contact Modal with Phone, WhatsApp and Email */}
       <ContactModal
